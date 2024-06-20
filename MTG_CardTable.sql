@@ -109,6 +109,187 @@ INSERT INTO mtg_cards
 (card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
 VALUES("Azorius Arrester", "Creature", "Human Soldier", "RTR", "White", "1 Gray, 1 White", 2,1, "When Azorius Arrester enters the battlefield, detain target creature an opponent controls. (Until your next turn, that creature can’t attack or block and its activated abilities can’t be activated.) “You have the right to remain silent. Mostly because I tire of your excuses.”");
 
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Azorius Justiciar", "Creature", "Human Wizard", "RTR", "White", "2 Gray, 2 White", 2,2, "When Azorius Justiciar enters the battlefield, detain up to two target creatures your opponents control. (Until your next turn, those creatures can’t attack or block and their activated abilities can’t be activated.) “Your potential to commit a crime warrants further investigation.”");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Bazaar Krovod", "Creature", "Beast", "RTR", "White", "4 Gray, 1 White", 2, 5, "Whenever Bazaar Krovod attacks, another target attacking creature gets +0/+2 until end of turn. Untap that creature. The Hauler’s Collective wields great influence over the Ravnican merchant class. Without it, little moves in the city.");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Concordia Pegasus", "Creature", "Pegasus", "RTR", "White", "1 Gray, 1 White", 1,3, "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Ethereal Armor", "Enchantment - Aura", "RTR", "White", "1 White", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Eyes in the Skies", "Instant", "RTR", "White", "3 Gray, 1 White", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Fencing Ace", "Creature", "Human Soldier", "RTR", "White", "1 Gray, 1 White", 1, 1, "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Keening Apparition", "Creature", "Spirit", "RTR", "White", "1 Gray, 1 White", 2,2,"");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Knightly Valor", "Enchantment - Aura", "RTR", "White", "4 Gray, 1 White", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Martial Law", "Enchantment", "RTR", "White", "2 Gray, 2 White", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Palisade Giant", "Creature", "Giant Soldier", "RTR", "White", "4 Gray, 2 White", 2, 7, "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Phantom General", "Creature", "Spirit Soldier", "RTR", "White", "3 Gray, 1 White", 2,3,"");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Precinct Captain", "Creature", "Human Soldier", "RTR", "White", "2 White", 2 , 2, "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Rest in Peace", "Enchantment", "RTR", "White", "1 Gray, 1 White", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Rootborn Defenses", "Instant", "RTR", "White", "2 Gray, 1 White", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Security Blockade", "Enchantment - Aura", "RTR", "White", "2 Gray, 1 White", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Selesnya Sentry", "Creature", "Elephant Soldier", "RTR", "White", "2 Gray, 1 White", 3,2, "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Seller of Songbirds", "Creature", "Human", "RTR", "White", "2 Gray, 1 White", 1,2,"");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Soul Tithe", "Enchantment - Aura", "RTR", "White", "1 Gray, 1 White", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Sphere of Safety", "Enchantment", "RTR", "White", "4 Gray, 1 White", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Sunspire Griffin", "Creature", "Griffin", "RTR", "White", "1 Gray, 2 White", 2,3,"");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Swift Justice", "Instant", "RTR", "White", "1 White", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Trained Caracal", "Creature", "Cat", "RTR", "White", "1 White", 1,1,"");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Trostani's Judgement", "Instant", "RTR", "White", "5 Gray, 1 White", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Aquus Steed", "Creature", "Beast", "RTR", "Blue", "3 Gray, 1 Blue", 1 , 3, "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Blustersquall", "Instant", "RTR", "Blue", "1 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Cancel", "Instant", "RTR", "Blue", "1 Gray, 2 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Chronic Flooding", "Enchantment - Aura", "RTR", "Blue", "1 Gray, 1 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Conjured Currency", "Enchantment", "RTR", "Blue", "5 Gray, 1 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Crosstown Courier", "Creature", "Vedalken", "RTR", "Blue","1 Gray, 1 Blue", 2, 1,"");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Cyclonic Rift", "Instant", "RTR", "Blue", "1 Gray, 1 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Dispel", "Instant", "RTR", "Blue", "1 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Doorkeeper", "Creature", "Homunculus", "RTR", "Blue","1 Gray, 1 Blue", 0, 4,"");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Downsize", "Instant", "RTR", "Blue", "1 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Faerie Imposter", "Creature", "Faerie Rogue", "RTR", "Blue", "1 Blue", 2, 1,"");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Hover Barrier", "Creature", "Illusion Wall", "RTR", "Blue", "2 Gray, 1 Blue", 0, 6,"");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Inaction Injunction", "Sorcery", "RTR", "Blue", "1 Gray, 1 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Inspiration", "Instant", "RTR", "Blue", "3 Gray, 1 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Isperia's Skywatch", "Creature", "Vedalken Knight", "RTR", "Blue","5 Gray, 1 Blue", 3, 3,"");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Jace, Architect of Thought", "Planeswalker", "Jace", "RTR", "Blue","2 Gray, 2 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Mizzium Skin", "Instant", "RTR", "Blue", "1 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Paralyzing Grasp", "Enchantment - Aura", "RTR", "Blue", "2 Gray, 1 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Psychic Spiral", "Instant", "RTR", "Blue", "4 Gray, 1 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Runewing", "Creature", "Bird", "RTR", "Blue","3 Gray, 1 Blue", 2, 2,"");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Search the City", "Enchantment", "RTR", "Blue", "4 Gray, 1 Blue", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_creature_type, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Skyline Predator", "Creature", "Drake", "RTR", "Blue", "4 Gray, 2 Blue", 3, 4,"");
+
+
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
 VALUES(1, "Rakdos Raid", NULL, "Mountain", 12, "Basic Land");
