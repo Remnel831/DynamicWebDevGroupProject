@@ -44,8 +44,8 @@ CREATE TABLE mtg_decks
     deck_card_id int,
     deck_card_count int,
     deck_card_type varchar(30),
-    deck_card_name varchar(40)
-    
+    deck_card_name varchar(40),
+    CONSTRAINT FOREIGN KEY (deck_card_id) REFERENCES mtg_cards(card_id)
 );
 
 GRANT SELECT, INSERT, DELETE, UPDATE
@@ -92,6 +92,10 @@ VALUES("Artifact", "Artifacts are permanents that represent magical items, anima
 INSERT INTO mtg_card_sets
 (set_code, set_name, set_release_date, set_total_common, set_total_uncommon, set_total_rare, set_total_mythic, set_total_land, set_total_other)
 VALUES ("RTR", "Return to Ravnica", '2012-10-05', 274, 101, 80, 53, 15, 25);
+
+INSERT INTO mtg_card_sets
+(set_code, set_name, set_release_date, set_total_common, set_total_uncommon, set_total_rare, set_total_mythic, set_total_land, set_total_other)
+VALUES ("M13", "Magic 2013", '2012-07-13', 249, 101, 60, 53, 15, 20);
 
 INSERT INTO mtg_cards
 (card_name, card_type, card_subtype, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
@@ -420,6 +424,10 @@ VALUES("Thrill-Kill Assassin", "Creature", "Human Assassin", "RTR", "Black", "1 
 INSERT INTO mtg_cards
 (card_name, card_type, card_set_code, card_color, card_cost, card_description)
 VALUES("Ultimate Price", "Instant", "RTR", "Black", "1 Gray, 1 Black", "");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_subtype, card_set_code, card_color, card_cost, card_description)
+VALUES("Crippling Blight", "Enchantment", "Aura", "RTR", "Black", "1 Black", "");
 
 INSERT INTO mtg_cards
 (card_name, card_type, card_subtype, card_set_code, card_color, card_cost, card_description)
@@ -1114,118 +1122,142 @@ INSERT INTO mtg_cards
 (card_name, card_type, card_subtype, card_set_code, card_color)
 VALUES("Forest", "Basic Land", "Forest", "RTR", "Green");
 
-INSERT INTO mtg_decks
-(deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Mountain", 12, "Basic Land");
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Cower in Fear", "Instant", "M13", "Black", "1 Gray, 2 Black", " Creatures your opponents control get -1/-1 until end of turn. You will fully understand fear when you discover it is the final thing you put your faith in. —Nicol Bolas");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_set_code, card_color, card_cost, card_description)
+VALUES("Blood Reckoning", "Enchantment", "M13", "Black", "3 Gray, 1 Black", "Whenever a creature attacks you or a planeswalker you control, that creature's controller loses 1 life. There is no greater folly than standing against me. —Nicol Bolas");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_subtype, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Zombie Goliath", "Creature", "Zombie Giant", "M13", "Black", "4 Gray, 1 Black", 4, 3,"Removing the encumbrance of useless brain tissue grants several advantages: a slight increase in mobility, a response of revulsion and horror from the enemy, and, in the case of large specimens, room for passengers. —Zul Ashur, lich lord");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_subtype, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Tormented Soul", "Creature", "Spirit", "M13", "Black", "1 Black", 1, 1,"Tormented Soul can't block and can't be blocked. Those who raged most bitterly at the world in life are cursed to roam the nether realms in death.");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_subtype, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Ravenous Rats", "Creature", "Rat", "M13", "Black", "1 Gray, 1 Black", 1, 1," When Ravenous Rats enters the battlefield, target opponent discards a card. Devouring books is only the beginning. The librarian's next.");
+
+INSERT INTO mtg_cards
+(card_name, card_type, card_subtype, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
+VALUES("Canyon Minotaur", "Creature", "Minotaur Warrior", "M13", "Red","3 Gray, 1 Red", 3, 3,"We'll scale these cliffs, traverse Brittle Bridge, and then fight our way down the volcanic slopes on the other side. Isn't the shortest route through the canyon? Yes. So shouldn't we— No.");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Swamp", 12, "Basic Land");
+VALUES(1, "Rakdos Raid", 254, "Mountain", 12, "Basic Land");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Rakdos Guildgate", 1, "Land - Gate");
+VALUES(1, "Rakdos Raid", 253, "Swamp", 12, "Basic Land");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Bellows Lizard", 1, "Creature");
+VALUES(1, "Rakdos Raid", 245, "Rakdos Guildgate", 1, "Land - Gate");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Bloodfray Giant", 1, "Creature");
+VALUES(1, "Rakdos Raid", 89, "Bellows Lizard", 1, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Canyon Minotaur", 2, "Creature");
+VALUES(1, "Rakdos Raid", 90, "Bloodfray Giant", 1, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Carnival Hellsteed", 1, "Creature");
+VALUES(1, "Rakdos Raid", 261, "Canyon Minotaur", 2, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Cryptborn Horror", 1, "Creature");
+VALUES(1, "Rakdos Raid", 148, "Carnival Hellsteed", 1, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Gore-House Chainwalker", 2, "Creature");
+VALUES(1, "Rakdos Raid", 213, "Cryptborn Horror", 1, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Hellhole Flailer", 1, "Creature");
+VALUES(1, "Rakdos Raid", 97, "Gore-House Chainwalker", 2, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Minotaur Aggressor", 1, "Creature");
+VALUES(1, "Rakdos Raid", 168, "Hellhole Flailer", 1, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Rakdos Cackler", 2, "Creature");
+VALUES(1, "Rakdos Raid", 101, "Minotaur Aggressor", 1, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Rakdos Shred-Freak", 2, "Creature");
+VALUES(1, "Rakdos Raid", 221, "Rakdos Cackler", 2, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Ravenous Rats", 1, "Creature");
+VALUES(1, "Rakdos Raid", 222, "Rakdos Shred-Freak", 2, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Rix Maadi Guildmage", 1, "Creature");
+VALUES(1, "Rakdos Raid", 260, "Ravenous Rats", 1, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Sewer Shambler", 1, "Creature");
+VALUES(1, "Rakdos Raid", 193, "Rix Maadi Guildmage", 1, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Spawn of Rix Maadi", 1, "Creature");
+VALUES(1, "Rakdos Raid", 75, "Sewer Shambler", 1, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Tormented Soul", 3, "Creature");
+VALUES(1, "Rakdos Raid", 200, "Spawn of Rix Maadi", 1, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Zombie Goliath", 2, "Creature");
+VALUES(1, "Rakdos Raid", 259, "Tormented Soul", 3, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Blood Reckoning", 1, "Enchantment");
+VALUES(1, "Rakdos Raid", 258, "Zombie Goliath", 2, "Creature");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Crippling Blight", 2, "Enchantment");
+VALUES(1, "Rakdos Raid", 257, "Blood Reckoning", 1, "Enchantment");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Deviant Glee", 1, "Enchantment");
+VALUES(1, "Rakdos Raid", 83, "Crippling Blight", 2, "Enchantment");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Shrieking Affliction", 2, "Enchantment");
+VALUES(1, "Rakdos Raid", 65, "Deviant Glee", 1, "Enchantment");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Auger Spree", 1, "Instant");
+VALUES(1, "Rakdos Raid", 76, "Shrieking Affliction", 2, "Enchantment");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Cower in Fear", 1, "Instant");
+VALUES(1, "Rakdos Raid", 145, "Auger Spree", 1, "Instant");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Assassin's Strike", 1, "Sorcery");
+VALUES(1, "Rakdos Raid", 256, "Cower in Fear", 1, "Instant");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Mind Rot", 1, "Sorcery");
+VALUES(1, "Rakdos Raid", 57, "Assassin's Strike", 1, "Sorcery");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Traitorous Instinct", 1, "Sorcery");
+VALUES(1, "Rakdos Raid", 70, "Mind Rot", 1, "Sorcery");
 
 INSERT INTO mtg_decks
 (deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
-VALUES(1, "Rakdos Raid", NULL, "Rakdos Keyrune", 2, "Artifact");
+VALUES(1, "Rakdos Raid", 110, "Traitorous Instinct", 1, "Sorcery");
+
+INSERT INTO mtg_decks
+(deck_id, deck_name, deck_card_id, deck_card_name, deck_card_count, deck_card_type)
+VALUES(1, "Rakdos Raid", 233, "Rakdos Keyrune", 2, "Artifact");
