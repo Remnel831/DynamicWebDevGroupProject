@@ -48,6 +48,11 @@ CREATE TABLE mtg_decks
     
 );
 
+GRANT SELECT, INSERT, DELETE, UPDATE
+ON MTG_CardTable.*
+TO 'test_user'@'localhost'
+IDENTIFIED BY 'testpassword';
+
 INSERT INTO mtg_card_type
 (type_name,type_description)
 VALUES("Legendary Creature", "A creature is a permanent.  You may only control one copy of a legendary creature at a time.");
