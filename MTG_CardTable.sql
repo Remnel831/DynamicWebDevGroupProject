@@ -2,9 +2,8 @@ DROP DATABASE IF EXISTS mtg_card_shop;
 CREATE DATABASE mtg_card_shop;
 USE mtg_card_shop;
 
-CREATE TABLE mtg_card_sets
-(
-    set_code varchar(3),
+CREATE TABLE mtg_card_sets (
+    set_code varchar(3) PRIMARY KEY,
     set_name varchar(30),
     set_release_date date,
     set_total_common int,
@@ -15,30 +14,27 @@ CREATE TABLE mtg_card_sets
     set_total_other int
 );
 
-CREATE TABLE mtg_card_type
-(
-    type_name varchar(20) NOT NULL,
+CREATE TABLE mtg_card_type (
+    type_name varchar(20) PRIMARY KEY,
     type_description varchar(300)
 );
 
-CREATE TABLE mtg_cards
-(
+CREATE TABLE mtg_cards (
     card_id int PRIMARY KEY AUTO_INCREMENT,
     card_name varchar(40) NOT NULL,
-    card_type varchar(20),
+    card_type varchar(20) NOT NULL,
     card_subtype varchar(20),
-    card_set_code varchar(60),
+    card_set_code varchar(3),
     card_color varchar(30),
     card_cost varchar(20),
     card_attack int,
     card_defense int,
     card_description varchar(1000),
-    CONSTRAINT FOREIGN KEY (card_set_code) REFERENCES mtg_card_sets(set_code),
-    CONSTRAINT FOREIGN KEY (card_type) REFERENCES mtg_card_type(type_name)
+    CONSTRAINT fk_card_set_code FOREIGN KEY (card_set_code) REFERENCES mtg_card_sets(set_code),
+    CONSTRAINT fk_card_type FOREIGN KEY (card_type) REFERENCES mtg_card_type(type_name)
 );
 
-CREATE TABLE mtg_decks
-(
+CREATE TABLE mtg_decks (
     deck_id int,
     deck_name varchar(30),
     deck_card_id int,
@@ -49,13 +45,19 @@ CREATE TABLE mtg_decks
 );
 
 GRANT SELECT, INSERT, DELETE, UPDATE
-ON MTG_CardTable.*
+ON mtg_card_shop.*
 TO 'test_user'@'localhost'
 IDENTIFIED BY 'testpassword';
+
+
 
 INSERT INTO mtg_card_type
 (type_name,type_description)
 VALUES("Legendary Creature", "A creature is a permanent.  You may only control one copy of a legendary creature at a time.");
+
+INSERT INTO mtg_card_type
+(type_name, type_description) 
+VALUES ('Artifact Creature', 'Creatures made entirely of magical or mechanical materials.');
 
 INSERT INTO mtg_card_type
 (type_name, type_description)
@@ -651,7 +653,7 @@ VALUES("Towering Indrik", "Creature", "Beast", "RTR", "Green", "3 Gray, 1 Green"
 
 INSERT INTO mtg_cards
 (card_name, card_type, card_subtype, card_set_code, card_color, card_cost, card_description)
-VALUES("Urban Burgeoning", "Enchanting", "Aura", "RTR", "Green", "1 Green", "");
+VALUES("Urban Burgeoning", "Enchantment", "Aura", "RTR", "Green", "1 Green", "");
 
 INSERT INTO mtg_cards
 (card_name, card_type, card_subtype, card_set_code, card_color, card_cost, card_attack, card_defense, card_description)
