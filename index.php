@@ -1,29 +1,14 @@
 <?php
-require_once('database.php');
+    
 ?>
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-            <title>MTG Deckbuilder</title>
-            <link rel="stylesheet"  href="" />
-
-        <div class="navMenu">
-            <b><a href="index.php">Main Page</a></b>
-        </div>
-        <div class="navMenu">
-            <a href="decks.php">Deck List</a>
-        </div>
-        <div class="navMenu">
-            <a href="cards.php">Card List</a>
-        </div>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MTG Card Shop</title>
     </head>
     <body>
-        <main>
-            <p>Welcome to the MTG deck builder</p>
-        </main>
+        
     </body>
-
-
 </html>
