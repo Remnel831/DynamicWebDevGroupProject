@@ -2,10 +2,10 @@
 
 $servername = "localhost";
 $username = "test_user";
-$password = "";
+$password = "testpassword";
+$dbname = "mtg_card_shop";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
