@@ -29,7 +29,7 @@ $statement1->closeCursor();
     <div class="shipList">
     <table cellspacing="10" rules="rows" align="center">
         <tr>
-            <td><b>Card Name</br</td>
+            <td><b>Card Name</br></td>
             <td><b>Card Type</br></td>
             <td><b>Card Subtype</b></td>
             <td><b>Card Color</b></td>
