@@ -1,17 +1,17 @@
 <?php
 
-$servername = "localhost";
-$username = "test_user";
-$password = "testpassword";
-$dbname = "mtg_card_shop";
+$dataURL = 'mysql:host=localhost;dbname=mtg_card_shop';
+$user = 'mtg_user';
+$pass = 'mtgpassword';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+try
+{
+    $db = new PDO($dataURL, $user, $pass);
 }
-
-echo "Connected successfully";
+catch(PDOException $e)
+{
+$error = $e->getMessage();
+echo "<p>Connection Error: $error </p>";
+}
 
 ?>
