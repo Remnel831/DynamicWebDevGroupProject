@@ -1,0 +1,48 @@
+html {
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+} 
+
+nav {
+    width: 100%;
+    display: block;
+}
+
+ul.mainmenu > li {
+    list-style: none inside;
+    float: left;
+    width: 33.33%;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+ul.mainmenu {
+    width: 100%;
+}
+
+ul::after {
+	clear: both;
+	content: "";
+	display: table;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+table {
+    border: 8px solid navy;
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+}
+
+th, td {
+    border: 3px dashed black;
+    text-align: center;
+}

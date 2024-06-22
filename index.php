@@ -1,11 +1,11 @@
 <?php
+
 session_start();
 
 require_once('config/database.php');
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'main_page';
 
-// Route requests to appropriate controllers
 switch ($action) {
     case 'main_page':
         include('controllers/MainController.php'); // Example controller for main page
