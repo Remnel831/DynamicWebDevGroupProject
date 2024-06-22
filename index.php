@@ -15,10 +15,10 @@ switch ($action) {
     case 'deck':
         if (isset($_GET['deck_id'])) {
             $deck_id = $_GET['deck_id'];
-            
+        }
         include('controllers/DeckController.php'); // Example controller for decks
         $controller = new DeckController();
-        $controller->viewDeck();
+        $controller->viewDeck($deck_id);
         break;
     case 'cards':
         include('controllers/CardController.php'); // Example controller for cards
