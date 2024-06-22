@@ -1,33 +1,37 @@
 <?php
-// controllers/DeckController.php
-
-require_once(__DIR__ . '/../models/DeckModel.php');
+require_once('./models/DeckModel.php');
 
 class DeckController {
+    public function index() {
+        $data = $this->loadModelData();
+        
+        // Process data or perform actions based on the data
+        
+        // Load the view and pass data to it
+        $this->loadView('deck_view', $data);
+    }
     
-    private $deckModel;
-
-    public function __construct() {
-        $this->deckModel = new DeckModel();
+    private function loadModelData() {
+        // Instantiate the DeckModel
+        $deckModel = new DeckModel();
+        // Add the fetched cards to the data array
+        $decks = $deckModel->getAllDecks();
+        
+        // Prepare the data to be returned, including the decks
+        $data = [
+            'title' => 'Welcome to Our Deck Collection',
+            'content' => 'Explore our collection of decks.',
+            'decks' => $decks // Add the fetched decks to the data array
+        ];
+        
+        return $data;
     }
-
-    public function listDecks() {
-        $decks = $this->deckModel->getAllDecks();
-        include(__DIR__ . '/../views/deck_list.php');
+    
+    private function loadView($viewName, $data) {
+        // Extract data to variables for the view
+        extract($data);
+        
+        // Include the view file
+        include("views/{$viewName}.php");
     }
-
-    public function addDeck() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $name = $_POST['name'];
-            $description = $_POST['description'];
-            $this->deckModel->addDeck($name, $description);
-            // Redirect after adding deck (optional)
-            header("Location: index.php?action=list_decks");
-            exit();
-        }
-        include(__DIR__ . '/../views/add_deck.php');
-    }
-
-    // Other methods as needed (viewDeck, editDeck, deleteDeck)
 }
-?>

@@ -24,9 +24,7 @@
     <?php foreach ($decks as $deck) : ?>
         <tr>      
             <td>
-                <a href="deck.php?deck_id=<?php echo $deck['deck_id']; ?>">
-                    <?php echo $deck['deck_name']; ?>
-                </a>
+                
             </td>
         </tr>
     <?php endforeach; ?>

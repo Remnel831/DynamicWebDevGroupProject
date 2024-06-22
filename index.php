@@ -12,10 +12,13 @@ switch ($action) {
         $controller = new MainController();
         $controller->index();
         break;
-    case 'decks':
+    case 'deck':
+        if (isset($_GET['deck_id'])) {
+            $deck_id = $_GET['deck_id'];
+            
         include('controllers/DeckController.php'); // Example controller for decks
         $controller = new DeckController();
-        $controller->listDecks();
+        $controller->viewDeck();
         break;
     case 'cards':
         include('controllers/CardController.php'); // Example controller for cards
