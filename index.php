@@ -1,28 +1,40 @@
 <?php
 
-require_once('database.php');
+session_start();
 
-$action = filter_input(INPUT_POST, 'action');
+require_once('config/database.php');
 
-if ($action == NULL) {
-    $action = filter_input(INPUT_GET, 'action');
-    if ($action == NULL) {
-        $action = 'welcome';
-    }
+$action = isset($_GET['action']) ? $_GET['action'] : 'main_page';
+
+switch ($action) {
+    case 'main_page':
+        include('controllers/MainController.php'); // Example controller for main page
+        $controller = new MainController();
+        $controller->index();
+        break;
+    case 'decks':
+        include('controllers/DeckController.php'); // Example controller for decks
+        $controller = new DeckController();
+        $controller->listDecks();
+        break;
+    case 'cards':
+        include('controllers/CardController.php'); // Example controller for cards
+        $controller = new CardController();
+        $controller->listCards();
+        break;
+    case 'add_deck':
+        include('controllers/DeckController.php'); // Example controller for adding a deck
+        $controller = new DeckController();
+        $controller->addDeck();
+        break;
+    case 'add_card':
+        include('controllers/CardController.php'); // Example controller for adding a card
+        $controller = new CardController();
+        $controller->addCard();
+        break;
+    default:
+        // Handle 404 page
+        http_response_code(404);
+        include('views/404.php');
+        break;
 }
-
-switch($action) {
-    case 'welcome':
-        include('welcome.php');
-        break;
-    case 'card_view':
-        include('card_view.php');
-        break;
-    case 'type_view':
-        include('type_view.php');
-        break;
-    case 'deck_view':
-        include('deck_view.php');
-        break;
-}
-?>
