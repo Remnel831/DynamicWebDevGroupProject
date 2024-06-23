@@ -72,3 +72,18 @@ h1 {
 .deck-card a:hover {
     color: #007BFF;
 }
+
+.add-deck-container {
+    cursor: pointer;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+.add-deck-container .plus-sign {
+    font-size: 24px;
+}
+
+.add-deck-container .add-deck-input {
+    display: none; /* Initially hide input field */
+}

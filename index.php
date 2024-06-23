@@ -26,15 +26,27 @@ switch ($action) {
         $controller = new DeckController();
         $controller->viewDeck($deck_id);
         break;
+
+    case 'delete_deck':
+        if (isset($_GET['deck_id'])) {
+            $deck_id = $_GET['deck_id'];
+        }
+        include('controllers/DeckController.php'); // Example controller for deleting a deck
+        $controller = new DeckController();
+        $controller->deleteDeck($deck_id);
+        break;
     case 'cards':
         include('controllers/CardController.php'); // Example controller for cards
         $controller = new CardController();
         $controller->listCards();
         break;
     case 'add_deck':
+        if (isset($_POST['deck_name'])) {
+            $deck_name = $_POST['deck_name'];
+        }
         include('controllers/DeckController.php'); // Example controller for adding a deck
         $controller = new DeckController();
-        $controller->addDeck();
+        $controller->addDeck($deck_name);
         break;
     case 'add_card':
         include('controllers/CardController.php'); // Example controller for adding a card

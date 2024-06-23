@@ -48,42 +48,38 @@ h1 {
 .deck-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    justify-content: flex-start;
+    gap: 20px;
 }
-
 .deck-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    width: 200px; /* Smaller card width */
-    margin-bottom: 20px;
-}
-
-.card-count {
-    font-weight: bold;
+    width: 200px;
     text-align: center;
-    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.deck-card a {
+    text-decoration: none;
     color: #333;
+    font-size: 1.2em;
 }
-
-.deck-card table {
-    width: 100%;
-    border-collapse: collapse;
+.deck-card-actions {
     margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
 }
-
-.deck-card td {
-    padding: 4px;
-    color: #555;
+.edit-button, .delete-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
 }
-
-.deck-card tr:nth-child(even) {
-    background-color: #f9f9f9;
+.delete-button {
+    background-color: #DC3545;
 }
-
-.deck-card tr:hover {
-    background-color: #f1f1f1;
+.edit-button:hover, .delete-button:hover {
+    opacity: 0.8;
 }

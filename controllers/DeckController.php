@@ -23,7 +23,17 @@ class DeckController {
         $this->loadView('deck_view', $data);
     }
 
+    public function deleteDeck($deck_id) {
+        $deckModel = new DeckModel();
+        $deckModel->deleteDeck($deck_id);
+        header('Location: index.php?action=all_decks');
+    }
 
+    public function addDeck($deck_name) {
+        $deckModel = new DeckModel();
+        $deckModel->addDeck($deck_name);
+        header('Location: index.php?action=all_decks');
+    }
     private function loadView($viewName, $data) {
         include("views/{$viewName}.php");
     }
