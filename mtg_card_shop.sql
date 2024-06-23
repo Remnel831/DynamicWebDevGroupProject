@@ -11,6 +11,14 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+DROP DATABASE IF EXISTS mtg_card_shop;
+CREATE DATABASE mtg_card_shop;
+USE mtg_card_shop;
+
+GRANT SELECT, INSERT, DELETE, UPDATE
+ON mtg_card_shop.*
+TO 'mtg_user@localhost'
+IDENTIFIED BY 'mtgpassword';
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -388,7 +396,8 @@ INSERT INTO `mtg_decks` (`deck_id`, `deck_name`) VALUES
 
 CREATE TABLE `mtg_decks_cards` (
   `deck_id` int(11) NOT NULL,
-  `card_id` int(11) NOT NULL
+  `card_id` int(11) NOT NULL,
+  `card_count` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
