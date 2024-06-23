@@ -1,3 +1,13 @@
+<<<<<<< Updated upstream
+=======
+<?php
+$favoriteBtnMsg = 'Not Available';
+foreach ($_SESSION['favoriteDecks'] as $favDecks){
+if (($_SESSION['currentDeck']) === $favDecks) { $favoriteBtnMsg = '💛Favorited💛'; }
+else {$favoriteBtnMsg = '❤Click to favorite❤';}
+;}
+?>
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +26,11 @@
     <div class="container">
         <?php if (is_array($data['currentDeck']) && !empty($data['currentDeck'])): ?>
             <h1>Deck: <?php echo $data['currentDeck'][0]['deck_name']; ?></h1>
+<<<<<<< Updated upstream
+=======
+
+			<h2><a href=".?action=add_favorite?deck_id=$data['deck_id']"><?php echo $favoriteBtnMsg; ?></a></h2> 
+>>>>>>> Stashed changes
             <div class="deck-grid">
                 <?php foreach ($data['currentDeck'] as $index => $deck): ?>
                     <div class="deck-card">
