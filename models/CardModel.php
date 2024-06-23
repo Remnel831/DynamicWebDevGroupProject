@@ -12,23 +12,13 @@ class CardModel {
     }
 
     public function getAllCards() {
-        $sql = "SELECT * FROM mtg_cards";
-        $result = $this->conn->query($sql);
-        $cards = [];
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $cards[] = $row;
-            }
-        }
-        return $cards;
+        $querylist = 'SELECT * FROM mtg_cards';
+        $statement1 = $this->conn->prepare($querylist);
+        $statement1->execute();
+        $cardList = $statement1->fetchAll();
+        return $cardList;
     }
 
-    public function getCardById($id) {
-        $id = $this->conn->real_escape_string($id);
-        $sql = "SELECT * FROM mtg_cards WHERE id = '$id'";
-        $result = $this->conn->query($sql);
-        return $result->fetch_assoc();
-    }
 
     // Add other CRUD methods as needed (addCard, updateCard, deleteCard)
 }

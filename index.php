@@ -18,6 +18,7 @@ switch ($action) {
             $controller = new DeckController();
             $controller->index();
             break;
+            
     case 'deck':
         if (isset($_GET['deck_id'])) {
             $deck_id = $_GET['deck_id'];
@@ -35,10 +36,10 @@ switch ($action) {
         $controller = new DeckController();
         $controller->deleteDeck($deck_id);
         break;
-    case 'cards':
+    case 'all_cards':
         include('controllers/CardController.php'); // Example controller for cards
         $controller = new CardController();
-        $controller->listCards();
+        $controller->index();
         break;
     case 'add_deck':
         if (isset($_POST['deck_name'])) {

@@ -1,43 +1,28 @@
-<?php
-require_once('database.php');
-
-//get all cards
-$querylist = 'SELECT * FROM mtg_cards';
-$statement1 = $db->prepare($querylist);
-$statement1->execute();
-$cardList = $statement1->fetchAll();
-$statement1->closeCursor();       
-?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Card List</title>
-        
-
-        <div class="navMenu">
-            <a href="index.php">Main Page</a>
-        </div>
-        <div class="navMenu">
-            <a href="decks.php">Deck List</a>
-        </div>
-        <div class="navMenu">
-            <b><a href="cards.php">Card List</a></b>
-        </div>
+        <link rel="stylesheet" href="./assets/css/cards_view_styles.css>">
     </head>
     <body>
-<div class="grid">  
-    <div class="shipList">
-    <table cellspacing="10" rules="rows" align="center">
-        <tr>
-            <td><b>Card Name</br></td>
-            <td><b>Card Type</br></td>
-            <td><b>Card Subtype</b></td>
-            <td><b>Card Color</b></td>
-            <td><b>Card Cost</b></td>
-            <td><b>Creature Attack</b></td>
-            <td><b>Creature Defense</b></td>
-        </tr>
-        <?php foreach ($cardList as $cards) : ?>
+        <nav>
+            <ul class="mainmenu">
+                <li><a href=".?action=type_view">Card Types</a></li>
+                <li><a href=".?action=card_view">Card List</a></li>
+                <li><a href=".?action=deck_view">User Decks</a></li>
+            </ul>
+        </nav>
+        <table>
+            <tr>
+                <th>Card Name</th>
+                <th>Card Type</th>
+                <th>Card Subtype</th>
+                <th>Card Color</th>
+                <th>Card Cost</th>
+                <th>Creature Attack</th>
+                <th>Creature Defense</th>
+            </tr>
+            <?php foreach ($cardList as $cards) : ?>
             <tr>
                 <td><?php echo $cards['card_name']?></td>
                 <td><?php echo $cards['card_type']?></td>
@@ -48,8 +33,6 @@ $statement1->closeCursor();
                 <td><?php echo $cards['card_defense']?></td> 
             </tr>    
             <?php endforeach; ?>
-    </table>
-    </div>
-    </div>        
+        </table>       
     </body>
 </html>    
