@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
     $favoriteBtnMsg = 'Not Available';
     foreach ($_SESSION['favoriteDecks'] as $favDecks) {
@@ -12,7 +12,7 @@
     $currentDeck = $data['currentDeck'];
     $deckId = $currentDeck[0]['deck_id'];
 
-?> 
+?>  -->
 
 <!DOCTYPE html>
 <html lang="en">
