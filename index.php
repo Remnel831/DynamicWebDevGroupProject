@@ -1,11 +1,13 @@
 <?php
-
+session_set_cookie_params(0, '/');
 session_start();
+
+if (empty($_SESSION['currentDeck'])) { $_SESSION['currentDeck'] = 0; }
+if (empty($_SESSION['favoriteDeck'])) { $_SESSION['favoriteDeck'] = 0; }
 
 require_once('config/database.php');
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'main_page';
-
 switch ($action) {
     case 'main_page':
         include('controllers/MainController.php'); // Example controller for main page
@@ -20,7 +22,8 @@ switch ($action) {
             break;
     case 'deck':
         if (isset($_GET['deck_id'])) {
-            $deck_id = $_GET['deck_id'];
+		$deck_id = $_GET['deck_id'];
+		$_SESSION['currentDeck'] = $deck_id;
         }
         include('controllers/DeckController.php'); // Example controller for decks
         $controller = new DeckController();
@@ -40,6 +43,12 @@ switch ($action) {
         include('controllers/CardController.php'); // Example controller for adding a card
         $controller = new CardController();
         $controller->addCard();
+        break;
+	case 'add_favorite': // Saves a favorite deck
+		$_SESSION['favoriteDeck'] = $_SESSION['currentDeck'];
+		include('controllers/DeckController.php');
+		$controller = new DeckController();
+        $controller->viewDeck($_SESSION['currentDeck']);
         break;
     default:
         // Handle 404 page

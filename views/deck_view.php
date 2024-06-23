@@ -1,3 +1,7 @@
+<?php
+if (($_SESSION['currentDeck']) === $_SESSION['favoriteDeck']) { $favoriteBtnMsg = '💛Favorited💛'; }
+else {$favoriteBtnMsg = '❤Click to favorite❤';}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +20,8 @@
     <div class="container">
         <?php if (is_array($data['currentDeck']) && !empty($data['currentDeck'])): ?>
             <h1>Deck: <?php echo $data['currentDeck'][0]['deck_name']; ?></h1>
+
+			<h2><a href=".?action=add_favorite"><?php echo $favoriteBtnMsg; ?></a></h2>
             <div class="deck-grid">
                 <?php foreach ($data['currentDeck'] as $index => $deck): ?>
                     <div class="deck-card">
