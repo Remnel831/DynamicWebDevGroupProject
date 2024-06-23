@@ -23,6 +23,12 @@ class DeckController {
         $this->loadView('deck_view', $data);
     }
 
+    public function getFavoriteDeck($deck_id) {
+        $deckModel = new DeckModel();
+        $deckModel->getFavoriteDeck($deck_id);
+        header('Location: index.php?action=all_decks');
+    }
+
     public function deleteDeck($deck_id) {
         $deckModel = new DeckModel();
         $deckModel->deleteDeck($deck_id);

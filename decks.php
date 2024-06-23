@@ -11,7 +11,6 @@ $statement1->closeCursor();
 ?>
 
 
-
 <!DOCTYPE html>
 <html>
     <head>
