@@ -12,44 +12,38 @@ $statement1->closeCursor();
 <html>
     <head>
         <title>Card List</title>
-        
-
-        <div class="navMenu">
+        <nav class="navMenu">
             <a href="index.php">Main Page</a>
-        </div>
-        <div class="navMenu">
-            <a href="decks.php">Deck List</a>
-        </div>
-        <div class="navMenu">
-            <b><a href="cards.php">Card List</a></b>
-        </div>
-    </head>
+            <a href="index.php?action=all_decks"><b>Deck List</b></a>
+            <a href="index.php?action=cards"><b>Card List</b></a>
+        </nav>
+    </head>        
     <body>
-<div class="grid">  
-    <div class="shipList">
-    <table cellspacing="10" rules="rows" align="center">
-        <tr>
-            <td><b>Card Name</br></td>
-            <td><b>Card Type</br></td>
-            <td><b>Card Subtype</b></td>
-            <td><b>Card Color</b></td>
-            <td><b>Card Cost</b></td>
-            <td><b>Creature Attack</b></td>
-            <td><b>Creature Defense</b></td>
-        </tr>
-        <?php foreach ($cardList as $cards) : ?>
+    <div class="grid">  
+        <div class="shipList">
+        <table cellspacing="10" rules="rows" align="center">
             <tr>
-                <td><?php echo $cards['card_name']?></td>
-                <td><?php echo $cards['card_type']?></td>
-                <td><?php echo $cards['card_subtype']?></td>
-                <td><?php echo $cards['card_color']?></td>
-                <td><?php echo $cards['card_cost']?></td>
-                <td><?php echo $cards['card_attack']?></td>
-                <td><?php echo $cards['card_defense']?></td> 
-            </tr>    
-            <?php endforeach; ?>
-    </table>
-    </div>
-    </div>        
+                <td><b>Card Name</br></td>
+                <td><b>Card Type</br></td>
+                <td><b>Card Subtype</b></td>
+                <td><b>Card Color</b></td>
+                <td><b>Card Cost</b></td>
+                <td><b>Creature Attack</b></td>
+                <td><b>Creature Defense</b></td>
+            </tr>
+            <?php foreach ($cardList as $cards) : ?>
+                <tr>
+                    <td><?php echo $cards['card_name']?></td>
+                    <td><?php echo $cards['card_type']?></td>
+                    <td><?php echo $cards['card_subtype']?></td>
+                    <td><?php echo $cards['card_color']?></td>
+                    <td><?php echo $cards['card_cost']?></td>
+                    <td><?php echo $cards['card_attack']?></td>
+                    <td><?php echo $cards['card_defense']?></td> 
+                </tr>    
+                <?php endforeach; ?>
+        </table>
+        </div>
+        </div>        
     </body>
 </html>    
