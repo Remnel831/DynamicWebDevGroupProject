@@ -21,6 +21,28 @@ class DeckModel {
         
         return $decks;
     }
+
+    public function deleteDeck($deckId) {
+        // Delete related rows in mtg_decks_cards table (if applicable)
+        $sqlDeleteCards = "DELETE FROM mtg_decks_cards WHERE deck_id = :deckId";
+        $stmtDeleteCards = $this->conn->prepare($sqlDeleteCards);
+        $stmtDeleteCards->bindValue(":deckId", $deckId);
+        $stmtDeleteCards->execute();
+    
+        // Delete the deck itself from mtg_decks table
+        $sqlDeleteDeck = "DELETE FROM mtg_decks WHERE deck_id = :deckId";
+        $stmtDeleteDeck = $this->conn->prepare($sqlDeleteDeck);
+        $stmtDeleteDeck->bindValue(":deckId", $deckId);
+        $stmtDeleteDeck->execute();
+    
+        // Check if any rows were affected
+        $rowsDeleted = $stmtDeleteDeck->rowCount();
+    
+        // Return true if rows were affected, false otherwise
+        return ($rowsDeleted > 0);
+    }
+    
+
     public function getCurrentDeck($deckId) {
         $sql = "SELECT * FROM mtg_deck_cards_view WHERE deck_id = :deckId";
         $stmt = $this->conn->prepare($sql);
@@ -33,17 +55,14 @@ class DeckModel {
         return $deck;
     }
 
-    public function addDeck($deckData) {
-        $sql = "INSERT INTO mtg_decks (column_names) VALUES (:column_values)";
+    public function addDeck($deckName) {
+        $sql = "INSERT INTO mtg_decks (deck_name) VALUES (:deckName)";
         $stmt = $this->conn->prepare($sql);
-        // Assuming $deckData is an associative array with keys matching your column names
-        foreach ($deckData as $key => $value) {
-            $stmt->bindValue(":$key", $value);
-        }
+        $stmt->bindValue(":deckName", $deckName);
         $stmt->execute();
         return $this->conn->lastInsertId();
     }
-    
+
     public function updateDeck($deckId, $deckData) {
         $sql = "UPDATE mtg_decks SET column1 = :value1, column2 = :value2 WHERE id = :deckId";
         $stmt = $this->conn->prepare($sql);
@@ -52,14 +71,6 @@ class DeckModel {
         foreach ($deckData as $key => $value) {
             $stmt->bindValue(":$key", $value);
         }
-        $stmt->execute();
-        return $stmt->rowCount();
-    }
-    
-    public function deleteDeck($deckId) {
-        $sql = "DELETE FROM mtg_decks WHERE id = :deckId";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue(":deckId", $deckId);
         $stmt->execute();
         return $stmt->rowCount();
     }
