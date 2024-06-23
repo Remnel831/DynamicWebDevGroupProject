@@ -1,14 +1,8 @@
 <?php
-<<<<<<< Updated upstream
-
-session_start();
-
-=======
 session_set_cookie_params(0, '/');
 session_start();
 if (empty($_SESSION['currentDeck'])) { $_SESSION['currentDeck'] = 0; }
 if (empty($_SESSION['favoriteDecks'])) { $_SESSION['favoriteDecks'] = array(1); }
->>>>>>> Stashed changes
 require_once('config/database.php');
 $action = isset($_GET['action']) ? $_GET['action'] : 'main_page';
 
@@ -60,8 +54,6 @@ switch ($action) {
         $controller = new CardController();
         $controller->addCard();
         break;
-<<<<<<< Updated upstream
-=======
 	case 'add_favorite': // Saves a favorite deck
 		if (isset($_GET['deck_id'])) {
 		$deck_id = $_GET['deck_id'];
@@ -75,7 +67,6 @@ switch ($action) {
 		$controller = new DeckController();
         $controller->viewDeck($_SESSION['currentDeck']);
         break;
->>>>>>> Stashed changes
     default:
         // Handle 404 page
         http_response_code(404);
