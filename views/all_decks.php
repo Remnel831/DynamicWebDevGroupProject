@@ -19,8 +19,11 @@
             <?php foreach ($data['decks'] as $deck) : ?>
                 <div class="deck-card">
                     <a href="index.php?action=deck&deck_id=<?php echo $deck['deck_id']; ?>">
-                        <?php echo $deck['deck_name']; ?>
+						<?php if($deck['deck_id'] === $_SESSION['favoriteDeck']){echo $deck['deck_name']," 💛";}
+                         else {echo $deck['deck_name'];} ?>
+						
                     </a>
+
                 </div>
             <?php endforeach; ?>
         </div>

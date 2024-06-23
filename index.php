@@ -23,7 +23,7 @@ switch ($action) {
     case 'deck':
         if (isset($_GET['deck_id'])) {
 		$deck_id = $_GET['deck_id'];
-		$_SESSION['currentDeck'] = $deck_id;
+		$_SESSION['currentDeck'] = $deck_id; //Saves last deck loaded in
         }
         include('controllers/DeckController.php'); // Example controller for decks
         $controller = new DeckController();
