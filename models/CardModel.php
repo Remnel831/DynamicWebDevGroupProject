@@ -19,7 +19,5 @@ class CardModel {
         return $cardList;
     }
 
-
-    // Add other CRUD methods as needed (addCard, updateCard, deleteCard)
 }
 ?>

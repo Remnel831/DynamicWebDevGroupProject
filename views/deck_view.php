@@ -1,13 +1,17 @@
-<<<<<<< Updated upstream
-=======
 <?php
 $favoriteBtnMsg = 'Not Available';
-foreach ($_SESSION['favoriteDecks'] as $favDecks){
-if (($_SESSION['currentDeck']) === $favDecks) { $favoriteBtnMsg = '💛Favorited💛'; }
-else {$favoriteBtnMsg = '❤Click to favorite❤';}
-;}
+foreach ($_SESSION['favoriteDecks'] as $favDecks) {
+    if ($_SESSION['currentDeck'] === $favDecks) {
+        $favoriteBtnMsg = '💛Favorited💛';
+    } else {
+        $favoriteBtnMsg = '❤Click to favorite❤';
+    }
+}
+
+$currentDeck = $data['currentDeck'];
+$deckId = $currentDeck[0]['deck_id'];
 ?>
->>>>>>> Stashed changes
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,43 +23,40 @@ else {$favoriteBtnMsg = '❤Click to favorite❤';}
 <body>
     <nav class="navMenu">
         <a href="index.php">Main Page</a>
-        <a href="decks.php"><b>Deck List</b></a>
-        <a href="cards.php">Card List</a>
+        <a href="index.php?action=all_decks"><b>Deck List</b></a>
+        <a href="index.php?action=all_cards">Card List</a>
     </nav>
 
     <div class="container">
-        <?php if (is_array($data['currentDeck']) && !empty($data['currentDeck'])): ?>
-            <h1>Deck: <?php echo $data['currentDeck'][0]['deck_name']; ?></h1>
-<<<<<<< Updated upstream
-=======
+        <?php if (is_array($currentDeck) && !empty($currentDeck)): ?>
+            <h1>Deck: <?= $currentDeck[0]['deck_name']; ?></h1>
 
-			<h2><a href=".?action=add_favorite?deck_id=$data['deck_id']"><?php echo $favoriteBtnMsg; ?></a></h2> 
->>>>>>> Stashed changes
+            <h2><a href=".?action=add_favorite?deck_id=<?= $deckId; ?>"><?= $favoriteBtnMsg; ?></a></h2> 
             <div class="deck-grid">
-                <?php foreach ($data['currentDeck'] as $index => $deck): ?>
+                <?php foreach ($currentDeck as $index => $deck): ?>
                     <div class="deck-card">
-                        <div class="card-count">Card <?php echo $index + 1; ?></div>
+                        <div class="card-count">Card <?= $index + 1; ?></div>
                         <table class="deck-details">
                             <tr>
-                                <td><strong>Card Name:</strong> <?php echo $deck['card_name']; ?></td>
+                                <td><strong>Card Name:</strong> <?= $deck['card_name']; ?></td>
                             </tr>
                             <tr>
-                                <td><strong>Type:</strong> <?php echo $deck['card_type']; ?> - <?php echo $deck['card_subtype']; ?></td>
+                                <td><strong>Type:</strong> <?= $deck['card_type']; ?> - <?= $deck['card_subtype']; ?></td>
                             </tr>
                             <tr>
-                                <td><strong>Set Code:</strong> <?php echo $deck['card_set_code']; ?></td>
+                                <td><strong>Set Code:</strong> <?= $deck['card_set_code']; ?></td>
                             </tr>
                             <tr>
-                                <td><strong>Color:</strong> <?php echo $deck['card_color']; ?></td>
+                                <td><strong>Color:</strong> <?= $deck['card_color']; ?></td>
                             </tr>
                             <tr>
-                                <td><strong>Cost:</strong> <?php echo $deck['card_cost']; ?></td>
+                                <td><strong>Cost:</strong> <?= $deck['card_cost']; ?></td>
                             </tr>
                             <tr>
-                                <td><strong>Attack/Defense:</strong> <?php echo $deck['card_attack']; ?> / <?php echo $deck['card_defense']; ?></td>
+                                <td><strong>Attack/Defense:</strong> <?= $deck['card_attack']; ?> / <?= $deck['card_defense']; ?></td>
                             </tr>
                             <tr>
-                                <td><strong>Description:</strong> <?php echo $deck['card_description']; ?></td>
+                                <td><strong>Description:</strong> <?= $deck['card_description']; ?></td>
                             </tr>
                         </table>
                     </div>
