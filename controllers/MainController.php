@@ -1,4 +1,5 @@
 <?php
+
 require_once('./models/DeckModel.php');
 
 class MainController {
