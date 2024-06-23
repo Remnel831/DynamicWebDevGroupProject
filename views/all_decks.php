@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/main_styles.css" />
+    <link rel="stylesheet" href="./assets/css/all_deck_styles.css" />
     <title>Deck List</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
     <div class="container">
         <h1>Deck List</h1>
         <div class="deck-grid">
-            <?php foreach ($decks as $deck) : ?>
+            <?php foreach ($data['decks'] as $deck) : ?>
                 <div class="deck-card">
                     <a href="index.php?action=deck&deck_id=<?php echo $deck['deck_id']; ?>">
                         <?php echo $deck['deck_name']; ?>
