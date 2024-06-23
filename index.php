@@ -12,6 +12,12 @@ switch ($action) {
         $controller = new MainController();
         $controller->index();
         break;
+
+    case 'all_decks':
+            include('controllers/DeckController.php'); // Example controller for main page
+            $controller = new DeckController();
+            $controller->index();
+            break;
     case 'deck':
         if (isset($_GET['deck_id'])) {
             $deck_id = $_GET['deck_id'];

@@ -8,7 +8,7 @@ class MainController {
         // Process data or perform actions based on the data
         
         // Load the view and pass data to it
-        $this->loadView('main_page_view', $data);
+        $this->loadView('main_page', $data);
     }
     
     private function loadModelData() {
