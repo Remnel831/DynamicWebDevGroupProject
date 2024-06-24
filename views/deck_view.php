@@ -34,13 +34,13 @@
                                     <td><strong>Color:</strong> <?php echo $deck['card_color']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Cost:</strong> <?php echo $deck['card_cost']; ?></td>
+                                    <td><strong>Cost:</strong> <?php echo manaReplace($deck['card_cost']); ?></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Attack/Defense:</strong> <?php echo $deck['card_attack']; ?> / <?php echo $deck['card_defense']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Description:</strong> <?php echo $deck['card_description']; ?></td>
+                                    <td><strong>Description:</strong> <?php echo manaReplace($deck['card_description']); ?></td>
                                 </tr>
                             </table>
                         </div>

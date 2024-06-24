@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-
 require_once('config/database.php');
+include('ManaIcon.php');
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'main_page';
 

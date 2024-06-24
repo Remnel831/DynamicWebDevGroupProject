@@ -3,8 +3,8 @@ require_once('./models/DeckModel.php');
 
 class MainController {
     public function index() {
-        $data = $this->loadModelData();
-        
+        $data = array();
+            
         // Process data or perform actions based on the data
         
         // Load the view and pass data to it
