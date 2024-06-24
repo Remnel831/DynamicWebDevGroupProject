@@ -92,10 +92,3 @@ $manaSymbolOut = preg_replace_callback($patterns, function($match) use ($manaPat
 return $manaSymbolOut;
 }
 ?>
-
-<!DOCTYPE html>
-<html>
-    <body>
-        <p><?php echo manaReplace("{W} {WU}")?></P>
-    </body>
-</html>
