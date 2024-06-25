@@ -1,11 +1,12 @@
 <?php
 session_set_cookie_params(0, '/');
 session_start();
+
 if (empty($_SESSION['currentDeck'])) { $_SESSION['currentDeck'] = 0; }
-if (empty($_SESSION['favoriteDecks'])) { $_SESSION['favoriteDecks'] = array(1); }
+if (empty($_SESSION['favoriteDeck'])) { $_SESSION['favoriteDeck'] = 0; }
+
 require_once('config/database.php');
 $action = isset($_GET['action']) ? $_GET['action'] : 'main_page';
-
 switch ($action) {
     case 'main_page':
         include('controllers/MainController.php'); // Example controller for main page
@@ -21,7 +22,8 @@ switch ($action) {
             
     case 'deck':
         if (isset($_GET['deck_id'])) {
-            $deck_id = $_GET['deck_id'];
+		$deck_id = $_GET['deck_id'];
+		$_SESSION['currentDeck'] = $deck_id; //Saves last deck loaded in
         }
         include('controllers/DeckController.php'); // Example controller for decks
         $controller = new DeckController();
@@ -55,14 +57,7 @@ switch ($action) {
         $controller->addCard();
         break;
 	case 'add_favorite': // Saves a favorite deck
-		if (isset($_GET['deck_id'])) {
-		$deck_id = $_GET['deck_id'];
-		$_SESSION['currentDeck'] = $deck_id; //Saves last deck loaded in
-        }
-		foreach ($_SESSION['favoriteDecks'] as $favDecks){
-			if ($favDecks === $_SESSION['currentDeck']){$_SESSION[$favDecks] = 0;}
-			else{$_SESSION[$favDecks] = $_SESSION['currentDeck'];}
-		;}
+		$_SESSION['favoriteDeck'] = $_SESSION['currentDeck'];
 		include('controllers/DeckController.php');
 		$controller = new DeckController();
         $controller->viewDeck($_SESSION['currentDeck']);

@@ -1,19 +1,7 @@
-<!-- <?php
-
-    $favoriteBtnMsg = 'Not Available';
-    foreach ($_SESSION['favoriteDecks'] as $favDecks) {
-        if ($_SESSION['currentDeck'] === $favDecks) {
-            $favoriteBtnMsg = '💛Favorited💛';
-        } else {
-            $favoriteBtnMsg = '❤Click to favorite❤';
-        }
-    }
-
-    $currentDeck = $data['currentDeck'];
-    $deckId = $currentDeck[0]['deck_id'];
-
-?>  -->
-
+<?php
+if (($_SESSION['currentDeck']) === $_SESSION['favoriteDeck']) { $favoriteBtnMsg = '💛Favorited💛'; }
+else {$favoriteBtnMsg = '❤Click to favorite❤';}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,10 +18,10 @@
     </nav>
 
     <div class="container">
-        <?php if (is_array($currentDeck) && !empty($currentDeck)): ?>
-            <h1>Deck: <?= $currentDeck[0]['deck_name']; ?></h1>
+        <?php if (is_array($data['currentDeck']) && !empty($data['currentDeck'])): ?>
+            <h1>Deck: <?php echo $data['currentDeck'][0]['deck_name']; ?></h1>
 
-            <h2><a href=".?action=add_favorite?deck_id=<?= $deckId; ?>"><?= $favoriteBtnMsg; ?></a></h2> 
+			<h2><a href=".?action=add_favorite"><?php echo $favoriteBtnMsg; ?></a></h2>
             <div class="deck-grid">
                 <?php foreach ($currentDeck as $index => $deck): ?>
                     <div class="deck-card">

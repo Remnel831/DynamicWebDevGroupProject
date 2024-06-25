@@ -20,16 +20,11 @@
             <?php foreach ($data['decks'] as $deck) : ?>
                 <div class="deck-card">
                     <a href="index.php?action=deck&deck_id=<?php echo $deck['deck_id']; ?>">
-                        <?php echo $deck['deck_name']; ?>
+						<?php if($deck['deck_id'] === $_SESSION['favoriteDeck']){echo $deck['deck_name']," 💛";}
+                         else {echo $deck['deck_name'];} ?>
+						
                     </a>
-                    <div class="deck-card-actions">
-                        <a href="index.php?action=edit_deck&deck_id=<?php echo $deck['deck_id']; ?>" class="edit-button">Edit</a>
-                        <a href="index.php?action=delete_deck&deck_id=<?php echo $deck['deck_id']; ?>" class="delete-button" onclick="return confirm('Are you sure you want to delete this deck?');">Delete</a>
-                    </div>
-					
-						 <?php if($deck['deck_id'] === $_SESSION['favoriteDecks']){echo $deck['deck_name']," 💛";}
-                          else {echo $deck['deck_name'];} ?>
-                    </a>
+
                 </div>
 				
             <?php endforeach; ?>
