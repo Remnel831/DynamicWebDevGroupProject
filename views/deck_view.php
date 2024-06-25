@@ -23,7 +23,7 @@ else {$favoriteBtnMsg = '❤Click to favorite❤';}
 
             <h2><a href=".?action=add_favorite?deck_id=<?= $deckId; ?>"><?= $favoriteBtnMsg; ?></a></h2> 
             <div class="deck-grid">
-                <?php foreach ($currentDeck as $index => $deck): ?>
+                <?php foreach ($currentDeck as $deck): ?>
                     <div class="deck-card">
                         <div class="card-count">Card <?= $index + 1; ?></div>
                         <table class="deck-details">
