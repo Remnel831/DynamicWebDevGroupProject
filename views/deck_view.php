@@ -17,44 +17,42 @@ else {$favoriteBtnMsg = '❤Click to favorite❤';}
         <a href="index.php?action=all_cards">Card List</a>
     </nav>
 
-    <div class="container">
-        <?php if (is_array($currentDeck) && !empty($currentDeck)): ?>
-            <h1>Deck: <?= $currentDeck[0]['deck_name']; ?></h1>
-
-            <h2><a href=".?action=add_favorite?deck_id=<?= $deckId; ?>"><?= $favoriteBtnMsg; ?></a></h2> 
-            <div class="deck-grid">
-                <?php foreach ($currentDeck as $deck): ?>
-                    <div class="deck-card">
-                        <div class="card-count">Card <?= $index + 1; ?></div>
-                        <table class="deck-details">
-                            <tr>
-                                <td><strong>Card Name:</strong> <?= $deck['card_name']; ?></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Type:</strong> <?= $deck['card_type']; ?> - <?= $deck['card_subtype']; ?></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Set Code:</strong> <?= $deck['card_set_code']; ?></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Color:</strong> <?= $deck['card_color']; ?></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Cost:</strong> <?= $deck['card_cost']; ?></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Attack/Defense:</strong> <?= $deck['card_attack']; ?> / <?= $deck['card_defense']; ?></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Description:</strong> <?= $deck['card_description']; ?></td>
-                            </tr>
-                        </table>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        <?php else: ?>
-            <p>Deck information is unavailable.</p>
-        <?php endif; ?>
-    </div>
-</body>
+        <div class="container">
+            <?php if (is_array($data['currentDeck']) && !empty($data['currentDeck'])): ?>
+                <h1>Deck: <?php echo $data['currentDeck'][0]['deck_name']; ?></h1>
+                <div class="deck-grid">
+                    <?php foreach ($data['currentDeck'] as $index => $deck): ?>
+                        <div class="deck-card">
+                            <div class="card-count">Card <?php echo $index + 1; ?></div>
+                            <table class="deck-details">
+                                <tr>
+                                    <td><strong>Card Name:</strong> <?php echo $deck['card_name']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Type:</strong> <?php echo $deck['card_type']; ?> - <?php echo $deck['card_subtype']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Set Code:</strong> <?php echo $deck['card_set_code']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Color:</strong> <?php echo $deck['card_color']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cost:</strong> <?php echo manaReplace($deck['card_cost']); ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Attack/Defense:</strong> <?php echo $deck['card_attack']; ?> / <?php echo $deck['card_defense']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Description:</strong> <?php echo manaReplace($deck['card_description']); ?></td>
+                                </tr>
+                            </table>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+                <p>Deck information is unavailable.</p>
+            <?php endif; ?>
+        </div>
+    </body>
 </html>

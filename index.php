@@ -6,6 +6,9 @@ if (empty($_SESSION['currentDeck'])) { $_SESSION['currentDeck'] = 0; }
 if (empty($_SESSION['favoriteDeck'])) { $_SESSION['favoriteDeck'] = 0; }
 
 require_once('config/database.php');
+require_once('config/database.php');
+include('ManaIcon.php');
+
 $action = isset($_GET['action']) ? $_GET['action'] : 'main_page';
 switch ($action) {
     case 'main_page':
