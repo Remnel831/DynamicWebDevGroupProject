@@ -54,6 +54,10 @@ switch ($action) {
         $controller = new DeckController();
         $controller->addDeck($deck_name);
         break;
+    case 'edit_deck':
+        $deck_id = $_GET['deck_id'];
+        header("Location: views/edit_deck_form.php?deck_id=$deck_id");
+        break;
     case 'add_card':
         include('controllers/CardController.php'); // Example controller for adding a card
         $controller = new CardController();
