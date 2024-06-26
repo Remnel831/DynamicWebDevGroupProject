@@ -25,7 +25,6 @@ class DeckManager {
     
         return $cardList;
     }
-    
 }
 
 $deckManager = new DeckManager();
