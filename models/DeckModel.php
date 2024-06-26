@@ -44,13 +44,12 @@ class DeckModel {
     
 
     public function getCurrentDeck($deckId) {
-        $sql = "SELECT * FROM mtg_deck_cards_view WHERE deck_id = :deckId";
+        $sql = "SELECT deck_id, deck_name FROM mtg_decks WHERE deck_id = :deckId";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindValue(":deckId", $deckId);
         $stmt->execute();
-        
         // Fetch the result
-        $deck = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $deck = $stmt->fetch(PDO::FETCH_ASSOC);
         
         return $deck;
     }

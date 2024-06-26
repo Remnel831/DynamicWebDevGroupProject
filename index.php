@@ -5,8 +5,6 @@ session_start();
 if (empty($_SESSION['currentDeck'])) { $_SESSION['currentDeck'] = 0; }
 if (empty($_SESSION['favoriteDeck'])) { $_SESSION['favoriteDeck'] = 0; }
 
-require_once('config/database.php');
-require_once('config/database.php');
 include('ManaIcon.php');
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'main_page';
@@ -59,11 +57,11 @@ switch ($action) {
         $controller = new CardController();
         $controller->addCard();
         break;
-	case 'add_favorite': // Saves a favorite deck
-		$_SESSION['favoriteDeck'] = $_SESSION['currentDeck'];
+	case 'toggle_favorite': // Saves a favorite deck
 		include('controllers/DeckController.php');
+        $deck_id = $_SESSION['currentDeck'];
 		$controller = new DeckController();
-        $controller->viewDeck($_SESSION['currentDeck']);
+        $controller->toggleFavorite($_SESSION['currentDeck']);
         break;
     default:
         // Handle 404 page

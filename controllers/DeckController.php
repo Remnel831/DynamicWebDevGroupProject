@@ -1,5 +1,6 @@
 <?php
 require_once('./models/DeckModel.php');
+require_once('./models/CardModel.php'); // Include the CardModel
 
 class DeckController {
     
@@ -12,21 +13,40 @@ class DeckController {
         ];
         $this->loadView('all_decks', $data);
     }
+    
     public function viewDeck($deck_id) {
         $deckModel = new DeckModel();
-        $decks = $deckModel->getAllDecks();
+        $cardModel = new CardModel(); // Instantiate CardModel
+
         $currentDeck = $deckModel->getCurrentDeck($deck_id);
+        $cards = $cardModel->getCardsFromCurrentDeck($deck_id); // Fetch cards from the model
+
+        if (!empty($currentDeck)) {
+            $_SESSION['currentDeck'] = $currentDeck['deck_id'];
+        }
+        if ($_SESSION['currentDeck'] === $_SESSION['favoriteDeck']) {
+            $favoriteBtnMsg = '💛 Favorited 💛';
+        } else {
+            $favoriteBtnMsg = '❤ Click to favorite ❤';
+        }
+        
         $data = [
-            'decks' => $decks,
-            'currentDeck' => $currentDeck
+            'currentDeck' => $currentDeck,
+            'cards' => $cards,
+            'favorite_deck' => $favoriteBtnMsg
         ];
         $this->loadView('deck_view', $data);
     }
 
-    public function getFavoriteDeck($deck_id) {
-        $deckModel = new DeckModel();
-        $deckModel->getFavoriteDeck($deck_id);
-        header('Location: index.php?action=all_decks');
+    public function toggleFavorite($deck_id) {
+        if ($_SESSION['favoriteDeck'] === $deck_id) {
+            $_SESSION['favoriteDeck'] = 0;
+        } else {
+            $_SESSION['favoriteDeck'] = $deck_id;
+        }
+        
+        // Redirect back to viewDeck for display update
+        $this->viewDeck($deck_id);
     }
 
     public function deleteDeck($deck_id) {
@@ -40,7 +60,8 @@ class DeckController {
         $deckModel->addDeck($deck_name);
         header('Location: index.php?action=all_decks');
     }
-    private function loadView($viewName, $data) {
+    
+    private function loadView($viewName, $data = []) {
         include("views/{$viewName}.php");
     }
 }
