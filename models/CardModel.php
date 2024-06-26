@@ -18,6 +18,5 @@ class CardModel {
         $cardList = $statement1->fetchAll();
         return $cardList;
     }
-
 }
 ?>
