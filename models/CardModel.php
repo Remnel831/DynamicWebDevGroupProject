@@ -22,6 +22,5 @@ class CardModel {
         
         return $cardList;
     }
-
 }
 ?>
