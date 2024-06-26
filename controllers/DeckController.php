@@ -4,10 +4,16 @@ require_once('./models/CardModel.php'); // Include the CardModel
 
 class DeckController {
     
+    private $deckModel;
+    private $cardModel;
+
+    public function __construct(DeckModel $deckModel, CardModel $cardModel) {
+        $this->deckModel = $deckModel;
+        $this->cardModel = $cardModel;
+    }
     public function index() {
         // Logic to list all decks
-        $deckModel = new DeckModel();
-        $decks = $deckModel->getAllDecks();
+        $decks = $this->deckModel->getAllDecks();
         $data = [
             'decks' => $decks
         ];
@@ -15,20 +21,16 @@ class DeckController {
     }
     
     public function viewDeck($deck_id) {
-        $deckModel = new DeckModel();
-        $cardModel = new CardModel(); // Instantiate CardModel
-
-        $currentDeck = $deckModel->getCurrentDeck($deck_id);
-        $cards = $cardModel->getCardsFromCurrentDeck($deck_id); // Fetch cards from the model
-
+        $currentDeck = $this->deckModel->getCurrentDeck($deck_id);
+        $cards = $this->cardModel->getCardsFromCurrentDeck($deck_id); // Fetch cards from the model
+        
         if (!empty($currentDeck)) {
             $_SESSION['currentDeck'] = $currentDeck['deck_id'];
         }
-        if ($_SESSION['currentDeck'] === $_SESSION['favoriteDeck']) {
-            $favoriteBtnMsg = '💛 Favorited 💛';
-        } else {
-            $favoriteBtnMsg = '❤ Click to favorite ❤';
-        }
+    
+        $favoriteBtnMsg = ($_SESSION['currentDeck'] === $_SESSION['favoriteDeck']) 
+            ? '💛 Favorited 💛' 
+            : '❤ Click to favorite ❤';
         
         $data = [
             'currentDeck' => $currentDeck,
@@ -50,14 +52,12 @@ class DeckController {
     }
 
     public function deleteDeck($deck_id) {
-        $deckModel = new DeckModel();
-        $deckModel->deleteDeck($deck_id);
+        $this->deckModel->deleteDeck($deck_id);
         header('Location: index.php?action=all_decks');
     }
 
     public function addDeck($deck_name) {
-        $deckModel = new DeckModel();
-        $deckModel->addDeck($deck_name);
+        $this->deckModel->addDeck($deck_name);
         header('Location: index.php?action=all_decks');
     }
     
