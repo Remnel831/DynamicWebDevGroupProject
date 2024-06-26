@@ -1,21 +1,10 @@
-<?php
-require_once('database.php');
-
-//get all cards
-$querylist = 'SELECT * FROM mtg_cards';
-$statement1 = $db->prepare($querylist);
-$statement1->execute();
-$cardList = $statement1->fetchAll();
-$statement1->closeCursor();       
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Card List</title>
-        <link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="styles.css>">
     </head>
     <body>
         <nav>

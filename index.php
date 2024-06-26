@@ -1,61 +1,90 @@
 <?php
-
+session_set_cookie_params(0, '/');
 session_start();
 
-require_once('config/database.php');
+// Initialize session variables if not set
+if (empty($_SESSION['currentDeck'])) {
+    $_SESSION['currentDeck'] = 0;
+}
+if (empty($_SESSION['favoriteDeck'])) {
+    $_SESSION['favoriteDeck'] = 0;
+}
 
-$action = isset($_GET['action']) ? $_GET['action'] : 'main_page';
+require_once('./models/DeckModel.php');
+require_once('./models/CardModel.php');
+require_once('ManaIcon.php');
+
+// Instantiate models for dependency injection
+$deckModel = new DeckModel();
+$cardModel = new CardModel();
+
+$action = $_GET['action'] ?? 'main_page';
+$deck_id = $_GET['deck_id'] ?? null;
+$deck_name = $_POST['deck_name'] ?? null;
 
 switch ($action) {
     case 'main_page':
-        include('controllers/MainController.php'); // Example controller for main page
+        require_once('controllers/MainController.php');
         $controller = new MainController();
         $controller->index();
         break;
 
     case 'all_decks':
-            include('controllers/DeckController.php'); // Example controller for main page
-            $controller = new DeckController();
-            $controller->index();
-            break;
+        require_once('controllers/DeckController.php');
+        $controller = new DeckController($deckModel, $cardModel);
+        $controller->index();
+        break;
+
     case 'deck':
-        if (isset($_GET['deck_id'])) {
-            $deck_id = $_GET['deck_id'];
+        if ($deck_id) {
+            $_SESSION['currentDeck'] = $deck_id; // Saves last deck loaded in
         }
-        include('controllers/DeckController.php'); // Example controller for decks
-        $controller = new DeckController();
+        require_once('controllers/DeckController.php');
+        $controller = new DeckController($deckModel, $cardModel);
         $controller->viewDeck($deck_id);
         break;
 
     case 'delete_deck':
-        if (isset($_GET['deck_id'])) {
-            $deck_id = $_GET['deck_id'];
+        if ($deck_id) {
+            require_once('controllers/DeckController.php');
+            $controller = new DeckController($deckModel, $cardModel);
+            $controller->deleteDeck($deck_id);
         }
-        include('controllers/DeckController.php'); // Example controller for deleting a deck
-        $controller = new DeckController();
-        $controller->deleteDeck($deck_id);
         break;
-    case 'cards':
-        include('controllers/CardController.php'); // Example controller for cards
+
+    case 'all_cards':
+        require_once('controllers/CardController.php');
         $controller = new CardController();
-        $controller->listCards();
+        $controller->index();
         break;
+
     case 'add_deck':
-        if (isset($_POST['deck_name'])) {
-            $deck_name = $_POST['deck_name'];
+        if ($deck_name) {
+            require_once('controllers/DeckController.php');
+            $controller = new DeckController($deckModel, $cardModel);
+            $controller->addDeck($deck_name);
         }
-        include('controllers/DeckController.php'); // Example controller for adding a deck
-        $controller = new DeckController();
-        $controller->addDeck($deck_name);
+        break;
+    case 'edit_deck':
+        $deck_id = $_GET['deck_id'];
+        header("Location: views/edit_deck_form.php?deck_id=$deck_id");
         break;
     case 'add_card':
-        include('controllers/CardController.php'); // Example controller for adding a card
+        require_once('controllers/CardController.php');
         $controller = new CardController();
         $controller->addCard();
         break;
+
+    case 'toggle_favorite': // Saves a favorite deck
+        require_once('controllers/DeckController.php');
+        $deck_id = $_SESSION['currentDeck'];
+        $controller = new DeckController($deckModel, $cardModel);
+        $controller->toggleFavorite($deck_id);
+        break;
+
     default:
         // Handle 404 page
         http_response_code(404);
-        include('views/404.php');
+        require_once('views/404.php');
         break;
 }

@@ -1,49 +1,38 @@
-<?php
-require_once('database.php');
-
-//get all cards
-$querylist = 'SELECT * FROM mtg_cards';
-$statement1 = $db->prepare($querylist);
-$statement1->execute();
-$cardList = $statement1->fetchAll();
-$statement1->closeCursor();       
-?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Card List</title>
-        <nav class="navMenu">
-            <a href="index.php">Main Page</a>
-            <a href="index.php?action=all_decks"><b>Deck List</b></a>
-            <a href="index.php?action=cards"><b>Card List</b></a>
-        </nav>
-    </head>        
+        <link rel="stylesheet" href="./assets/css/cards_view_styles.css>">
+    </head>
     <body>
-    <div class="grid">  
-        <div class="shipList">
-        <table cellspacing="10" rules="rows" align="center">
+        <nav>
+            <ul class="mainmenu">
+                <li><a href=".?action=type_view">Card Types</a></li>
+                <li><a href=".?action=card_view">Card List</a></li>
+                <li><a href=".?action=deck_view">User Decks</a></li>
+            </ul>
+        </nav>
+        <table>
             <tr>
-                <td><b>Card Name</br></td>
-                <td><b>Card Type</br></td>
-                <td><b>Card Subtype</b></td>
-                <td><b>Card Color</b></td>
-                <td><b>Card Cost</b></td>
-                <td><b>Creature Attack</b></td>
-                <td><b>Creature Defense</b></td>
+                <th>Card Name</th>
+                <th>Card Type</th>
+                <th>Card Subtype</th>
+                <th>Card Color</th>
+                <th>Card Cost</th>
+                <th>Creature Attack</th>
+                <th>Creature Defense</th>
             </tr>
             <?php foreach ($cardList as $cards) : ?>
-                <tr>
-                    <td><?php echo $cards['card_name']?></td>
-                    <td><?php echo $cards['card_type']?></td>
-                    <td><?php echo $cards['card_subtype']?></td>
-                    <td><?php echo $cards['card_color']?></td>
-                    <td><?php echo $cards['card_cost']?></td>
-                    <td><?php echo $cards['card_attack']?></td>
-                    <td><?php echo $cards['card_defense']?></td> 
-                </tr>    
-                <?php endforeach; ?>
-        </table>
-        </div>
-        </div>        
+            <tr>
+                <td><?php echo $cards['card_name']?></td>
+                <td><?php echo $cards['card_type']?></td>
+                <td><?php echo $cards['card_subtype']?></td>
+                <td><?php echo $cards['card_color']?></td>
+                <td><?php echo $cards['card_cost']?></td>
+                <td><?php echo $cards['card_attack']?></td>
+                <td><?php echo $cards['card_defense']?></td> 
+            </tr>    
+            <?php endforeach; ?>
+        </table>       
     </body>
 </html>    

@@ -1,9 +1,10 @@
 <?php
+
 require_once('./models/DeckModel.php');
 
 class MainController {
     public function index() {
-        $data = $this->loadModelData();
+        $data = [];
         
         // Process data or perform actions based on the data
         
