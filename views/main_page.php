@@ -10,7 +10,7 @@
         <nav class="navMenu">
             <a href="index.php">Main Page</a>
             <a href="index.php?action=all_decks"><b>Deck List</b></a>
-            <a href="index.php?action=cards"><b>Card List</b></a>
+            <a href="index.php?action=all_cards"><b>Card List</b></a>
         </nav>
 
         <div class="container">

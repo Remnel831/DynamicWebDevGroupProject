@@ -10,16 +10,27 @@ class CardModel {
     public function __construct() {
         $this->conn = getConnection(); // Assumes getConnection() function from database.php
     }
-
-    public function getCardsFromCurrentDeck($deck_id) {
-        $query = "SELECT card_id, card_name, card_type, card_subtype, 
-        card_set_code, card_color, card_cost, card_attack, card_defense, card_description
-        FROM mtg_deck_cards_view WHERE deck_id = :deckId";
-        $statement = $this->conn->prepare($query);
-        $statement->bindParam(':deckId', $deck_id);
+    public function getAllCards($columns = '*') {
+        $queryCards = "SELECT $columns
+                       FROM mtg_cards";
+        $statement = $this->conn->prepare($queryCards);
         $statement->execute();
         $cardList = $statement->fetchAll();
-        
+        $statement->closeCursor();
+
+        return $cardList;
+    }
+    public function getCardList($deck_id, $columns = '*') {
+        $queryCards = "SELECT $columns
+                       FROM mtg_cards c
+                       INNER JOIN mtg_decks_cards dc ON c.card_id = dc.card_id
+                       WHERE dc.deck_id = :deck_id";
+        $statement = $this->conn->prepare($queryCards);
+        $statement->bindValue(':deck_id', $deck_id, PDO::PARAM_INT);
+        $statement->execute();
+        $cardList = $statement->fetchAll();
+        $statement->closeCursor();
+    
         return $cardList;
     }
 }

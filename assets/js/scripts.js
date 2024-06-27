@@ -7,3 +7,10 @@ function showAddDeckInput() {
     plusSign.style.display = 'none';
     addDeckInput.style.display = 'block';
 }
+function addCard(cardElement) {
+    const selectedCardsSection = document.getElementById('selected-cards');
+    const cardClone = cardElement.cloneNode(true);
+    cardClone.classList.add('selected-card');
+    cardClone.onclick = null; // Remove the click event to prevent adding again
+    selectedCardsSection.appendChild(cardClone);
+}

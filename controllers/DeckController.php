@@ -22,7 +22,7 @@ class DeckController {
     
     public function viewDeck($deck_id) {
         $currentDeck = $this->deckModel->getCurrentDeck($deck_id);
-        $cards = $this->cardModel->getCardsFromCurrentDeck($deck_id); // Fetch cards from the model
+        $cards = $this->cardModel->getCardList($deck_id); // Fetch cards from the model
         
         if (!empty($currentDeck)) {
             $_SESSION['currentDeck'] = $currentDeck['deck_id'];

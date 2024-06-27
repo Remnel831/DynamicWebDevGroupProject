@@ -54,7 +54,7 @@ switch ($action) {
 
     case 'all_cards':
         require_once('controllers/CardController.php');
-        $controller = new CardController();
+        $controller = new CardController($cardModel);
         $controller->index();
         break;
 
