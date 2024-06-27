@@ -26,8 +26,7 @@ class DeckManager {
     }
 
     public function getAllCards() {
-        $queryAllCards = 'SELECT *
-                          FROM mtg_cards';
+        $queryAllCards = 'SELECT card.*, sets.set_name FROM mtg_cards card JOIN mtg_card_sets sets ON card.card_set_code = sets.set_code';
         $statement1 = $this->conn->prepare($queryAllCards);
         $statement1->execute();
         $allCards = $statement1->fetchAll();
@@ -41,6 +40,7 @@ $deck_id = filter_input(INPUT_GET, 'deck_id', FILTER_VALIDATE_INT);
 
 $deckManager = new DeckManager();
 $cardList = $deckManager->getCardList();
+$allCards = $deckManager->getAllCards();
 
 ?>
 
@@ -76,6 +76,19 @@ $cardList = $deckManager->getCardList();
             </select>
             <input type="submit" formaction="deleteCard.php" value="Delete Card" />
             <input type="submit" formaction="updateQuantity.php" value="Update Quantity" />
+        </form>
+        <h3>Add Card to Deck</h3>
+        <form method="post">
+            <input type="hidden" name="deck_id" value="<?php echo $deck_id; ?>" />
+            <label>Card to Add: </label>
+            <select name="card_id" id="card_id">
+            <?php foreach ($allCards as $card) : ?>
+                <option value="<?php echo $card['card_id']; ?>">
+                <?php echo $card['card_name']; ?>, <?php echo $card['set_name']; ?>
+                </option>
+            <?php endforeach; ?> 
+            </select>
+            <input type="submit" formaction="addCard.php" value="Add Card" />
         </form>
         <footer name="deck_id" id="deck_id">Deck ID: <?php echo $deck_id; ?></footer>
     </body>
