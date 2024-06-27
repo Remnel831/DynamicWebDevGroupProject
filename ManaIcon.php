@@ -1,4 +1,9 @@
 <?php
+/*
+This file sets up the mana icon and card color scripts that replaces mana tags with the symbols from the real cards and sets the card background
+to match the color of the card.  - Jacob
+*/
+
 
 function manaReplace($input)
 {
@@ -93,6 +98,8 @@ $manaSymbolOut = preg_replace_callback($patterns, function($match) use ($manaPat
 return $manaSymbolOut;
 }
 
+
+//this ones pretty straightforward.  Just changes the imgurl string based on the color thats passed to it from the table.  
 function CardColor($color)
 {
     $imgurl = '';

@@ -33,7 +33,9 @@ IDENTIFIED BY 'mtgpassword';
 
 --
 -- Table structure for table `mtg_cards`
---
+--Exporting from phpmyadmin broke these up into sections which helps for commenting
+--This table just has the cards details with an arbitrary ID.  It auto increments so its based on the order I typed them in.
+--Exporting just hard coded the ids each card ended up with, but originally I just left that column blank. 
 
 DROP TABLE IF EXISTS `mtg_cards`;
 CREATE TABLE IF NOT EXISTS `mtg_cards` (
@@ -54,6 +56,7 @@ CREATE TABLE IF NOT EXISTS `mtg_cards` (
 
 --
 -- Dumping data for table `mtg_cards`
+--This took so long to enter.  Once they were in the database I was able to copy and paste the card descriptions though so it could have been worse.
 --
 
 INSERT INTO `mtg_cards` (`card_id`, `card_name`, `card_type`, `card_subtype`, `card_set_code`, `card_color`, `card_cost`, `card_attack`, `card_defense`, `card_description`) VALUES
@@ -324,6 +327,8 @@ INSERT INTO `mtg_cards` (`card_id`, `card_name`, `card_type`, `card_subtype`, `c
 
 --
 -- Table structure for table `mtg_card_sets`
+-- So far I only put in Return to Ravnica with a few cards from Magic 2013 I needed to put in one of the premade decks.
+-- I wanted to put my irl deck in, but that would require at least one other set...I'll think about it.
 --
 
 DROP TABLE IF EXISTS `mtg_card_sets`;
@@ -352,7 +357,7 @@ INSERT INTO `mtg_card_sets` (`set_code`, `set_name`, `set_release_date`, `set_to
 
 --
 -- Table structure for table `mtg_card_type`
---
+-- Card type is pretty straightforward too.  In theory you'll be able to hover the card type and see the description. 
 
 DROP TABLE IF EXISTS `mtg_card_type`;
 CREATE TABLE IF NOT EXISTS `mtg_card_type` (
@@ -381,7 +386,7 @@ INSERT INTO `mtg_card_type` (`type_name`, `type_description`) VALUES
 
 --
 -- Table structure for table `mtg_decks`
---
+-- tracks the deck names and deck ids 
 
 DROP TABLE IF EXISTS `mtg_decks`;
 CREATE TABLE IF NOT EXISTS `mtg_decks` (
@@ -404,7 +409,7 @@ INSERT INTO `mtg_decks` (`deck_id`, `deck_name`) VALUES
 
 --
 -- Table structure for table `mtg_decks_cards`
---
+-- Tracks the deck, its unique cards, and how many of each card exists
 
 DROP TABLE IF EXISTS `mtg_decks_cards`;
 CREATE TABLE IF NOT EXISTS `mtg_decks_cards` (
