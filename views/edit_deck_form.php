@@ -69,7 +69,10 @@ $cardList = $deckManager->getCardList();
             <?php endforeach; ?>    
             </select>
             <select name="card_count" id="card_count">
-                <option value="5">5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
             </select>
             <input type="submit" formaction="deleteCard.php" value="Delete Card" />
             <input type="submit" formaction="updateQuantity.php" value="Update Quantity" />
