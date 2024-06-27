@@ -26,7 +26,7 @@
                 <div class="deck-grid">
                 <?php $index = 1; ?>
                     <?php foreach ($data['cards'] as $card): ?>
-                        <div class="deck-card">
+                        <div class="deck-card" style="background-image: url(<?php echo CardColor($card['card_color']);?>);">
                             <div class="card-count">Card <?php echo $index; ?></div>
                             <table class="deck-details">
                                 <tr>

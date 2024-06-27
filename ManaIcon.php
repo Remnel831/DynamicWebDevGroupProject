@@ -62,7 +62,7 @@ function manaReplace($input)
         '{WBP}' => '<img class ="manaIcon" width="15px" alt ="phyrexian white/black" src="assets/images/WBP.webp">',
         '{WP}' => '<img class ="manaIcon" width="15px" alt ="phyrexian white/green" src="assets/images/WP.webp">',
         '{WU}' => '<img class ="manaIcon" width="15px" alt = phyrexian white/blue" src="assets/images/WU.webp">',
-        '{WUP}' => '<img class ="manaIcon" width="15px" alt ="Untap" src="assets/images/WUP.webp" >',
+        '{WUP}' => '<img class ="manaIcon" width="15px" alt ="Untap" src="assets/images/WUP.webp">',
         '{T}' => '<img class ="manaIcon" width="15px" alt ="Tap" src="assets/images/T.webp">',
         '{Q}' => '<img class ="manaIcon" width="15px" alt ="Untap" src="assets/images/T.webp">',
         '{X}' => '<img class ="manaIcon" width="15px" alt ="Generic X mana" src="assets/images/X.webp">'
@@ -92,4 +92,84 @@ $manaSymbolOut = preg_replace_callback($patterns, function($match) use ($manaPat
 
 return $manaSymbolOut;
 }
+
+function CardColor($color)
+{
+    $imgurl = '';
+    switch ($color)
+    {
+        case "White":
+        {
+            $imgurl = 'assets/images/WhiteBG.png';
+            break;
+
+        }
+        case "Black":
+        {
+            $imgurl = 'assets/images/BlackBG.png';
+            break;
+        }
+        case "Red":
+        {
+            $imgurl = 'assets/images/RedBG.png';
+            break;
+
+        }
+        case "Gray":
+        {
+            $imgurl = 'assets/images/RedBG.png';
+            break;
+
+        }
+        case "Blue":
+        {
+            $imgurl = 'assets/images/RedBG.png';
+            break;
+
+        }
+        case "Black/Red":
+        {
+            $imgurl = 'assets/images/BlackRedBG.png';
+            break;
+
+        }
+        case "Green/White":
+        {
+            $imgurl = 'assets/images/GreenWhiteBG.png';
+            break;
+
+        }
+        case "Red/Green":
+        {
+            $imgurl = 'assets/images/RedGreenBG.png';
+            break;
+
+        }
+        case "Blue/Black":
+        {
+            $imgurl = 'assets/images/BlueBlack.png';
+            break;
+
+        }
+        case "Blue/Red":
+        {
+            $imgurl = 'assets/images/BlueRed.png';
+            break;
+
+        }
+        case "White/Black":
+        {
+            $imgurl = 'assets/images/WhiteBlack.png';
+            break;
+
+        }
+        case "White/Blue":
+        {
+            $imgurl = 'assets/images/WhiteBlue.png';
+            break;
+        }
+    }
+    return $imgurl;
+}
+
 ?>
