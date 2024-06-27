@@ -11,7 +11,7 @@
     <nav class="navMenu">
         <a href="index.php">Main Page</a>
         <a href="index.php?action=all_decks">Deck List</a>
-        <a href="cards.php">Card List</a>
+        <a href="index.php?action=all_cards">Card List</a>
     </nav>
 
     <div class="container">
