@@ -13,7 +13,6 @@ class DeleteCard {
     }
 
     public function deleteFromDeck() {
-        // Delete the product from the database
         if ($this->card_id !== false && $this->deck_id !== false) {
             $query = 'DELETE FROM mtg_decks_cards
                       WHERE card_id = :card_id
@@ -42,7 +41,6 @@ class DeleteCard {
 $card_id = filter_input(INPUT_POST, 'card_id', FILTER_VALIDATE_INT);
 $deck_id = filter_input(INPUT_POST, 'deck_id', FILTER_VALIDATE_INT);
 
-// Instantiate the DeleteCard class and call the deleteFromDeck method
 if ($card_id !== false && $deck_id !== false) {
     $deleteCard = new DeleteCard($card_id, $deck_id);
     $deleteCard->deleteFromDeck();
