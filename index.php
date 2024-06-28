@@ -12,7 +12,7 @@ if (empty($_SESSION['favoriteDeck'])) {
 
 require_once('./models/DeckModel.php');
 require_once('./models/CardModel.php');
-require_once('ManaIcon.php');
+require_once('./views/ManaView.php');
 
 // Instantiate models for dependency injection
 $deckModel = new DeckModel();

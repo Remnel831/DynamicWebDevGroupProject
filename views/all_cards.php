@@ -21,7 +21,7 @@
         <div class="deck-grid">
             <h2>Available Cards</h2>
             <?php foreach ($data['cards'] as $card): ?>
-                <div class="deck-card" onclick="addCard(this)">
+                <div class="deck-card" onclick="addCard(this)" style="background-size: cover; background-repeat: no-repeat; background-image: url(<?php echo CardColor($card['card_color']);?>);">
                     <strong><?php echo $card['card_name']; ?></strong>
                     <div class="card-details">
                         <p><strong>Type:</strong> <?php echo $card['card_type']; ?> - <?php echo $card['card_subtype']; ?></p>
