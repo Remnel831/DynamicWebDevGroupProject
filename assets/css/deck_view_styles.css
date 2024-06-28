@@ -1,5 +1,13 @@
     /* styles.css */
 
+body {
+    font-family: Arial, sans-serif;
+   /* background-color: #f4f4f4;*/
+    background-image: url(../Images/SilkBG.png);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
     body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
