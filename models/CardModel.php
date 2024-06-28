@@ -34,7 +34,7 @@ class CardModel {
         return $cardList;
     }
 
-    public function getAllCards() {
+    /*public function getAllCards() {
         $queryAllCards = 'SELECT *
                           FROM mtg_cards';
         $statement1 = $this->conn->prepare($queryAllCards);
@@ -42,7 +42,7 @@ class CardModel {
         $allCards = $statement1->fetchAll();
         $statement1->closeCursor();
 
-        return $allCards;
-    } 
+        return $allCards; 
+    } */
 }
 ?>
