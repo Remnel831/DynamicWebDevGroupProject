@@ -1,10 +1,8 @@
 <?php
 /*
 This file sets up the mana icon and card color scripts that replaces mana tags with the symbols from the real cards and sets the card background
-to match the color of the card.  - Jacob
+to match the color of the card.  It can get rolled into one of the models I just had it separate for testing.- Jacob
 */
-
-
 function manaReplace($input)
 {
     // => in an array replaces the left side with the right so {0} with the img src for 0.webp
@@ -30,12 +28,12 @@ function manaReplace($input)
         '{18}' => '<img class="manaIcon" width="15px" alt="18" src="assets/images/18.webp">',
         '{19}' => '<img class="manaIcon" width="15px" alt="19" src="assets/images/19.webp">',
         '{20}' => '<img class="manaIcon" width="15px" alt="20" src="assets/images/20.webp">',
-        '{B}' => '<img class="manaIcon" width="15px" alt="Blue" src="assets/images/B.webp">',
-        '{BG}' => '<img class="manaIcon" width="15px" alt="Blue/Green" src="assets/images/BG.webp">',
-        '{BGP}' => '<img class="manaIcon" width="15px" alt="Phyrexian Blue/Green" src="assets/images/BGP.webp">',
-        '{BP}' => '<img class="manaIcon" width="15px" alt="Phyrexian Blue" src="assets/images/BP.webp">',
-        '{BR}' => '<img class="manaIcon" width="15px" alt="Blue/Red" src="assets/images/BR.webp">',
-        '{BRP}' => '<img class="manaIcon" width="15px" alt="Phyrexian Blue/Red" src="assets/images/BRP.webp">',
+        '{B}' => '<img class="manaIcon" width="15px" alt="Black" src="assets/images/B.webp">',
+        '{BG}' => '<img class="manaIcon" width="15px" alt="Black/Green" src="assets/images/BG.webp">',
+        '{BGP}' => '<img class="manaIcon" width="15px" alt="Phyrexian Black/Green" src="assets/images/BGP.webp">',
+        '{BP}' => '<img class="manaIcon" width="15px" alt="Phyrexian Black" src="assets/images/BP.webp">',
+        '{BR}' => '<img class="manaIcon" width="15px" alt="Black/Red" src="assets/images/BR.webp">',
+        '{BRP}' => '<img class="manaIcon" width="15px" alt="Phyrexian Black/Red" src="assets/images/BRP.webp">',
         '{C}' => '<img class="manaIcon" width="15px" alt="Colorless" src="assets/images/C.webp">',
         '{CB}' => '<img class="manaIcon" width="15px" alt="Colorless/Black" src="assets/images/CB.webp">',
         '{CG}' => '<img class="manaIcon" width="15px" alt="Colorless/Green" src="assets/images/CG.webp">',
@@ -54,20 +52,20 @@ function manaReplace($input)
         '{RGP}' => '<img class="manaIcon" width="15px" alt="Phyrexian Red/Green" src="assets/images/RGP.webp">',
         '{RP}' => '<img class="manaIcon" width="15px" alt="Phyrexian Red" src="assets/images/RP.webp">',
         '{RW}' => '<img class="manaIcon" width="15px" alt="Red/White" src="assets/images/RW.webp">',
-        '{RWP}' => '<img class ="manaIcon" width="15px" alt ="phyrexian Red/White" src="assets/images/RWP.webp">',
+        '{RWP}' => '<img class ="manaIcon" width="15px" alt ="Phyrexian Red/White" src="assets/images/RWP.webp">',
         '{S}' => '<img class ="manaIcon" width="15px" alt ="Snow" src="assets/images/S.webp">',
         '{U}' => '<img class ="manaIcon" width="15px" alt ="Blue" src="assets/images/U.webp">',
-        '{UB}' => '<img class ="manaIcon" alt ="Blue/black" src="assets/images/UB.webp" >',
-        '{UBP}' => '<img class ="manaIcon" width="15px" alt ="phyrexian Blue/black" src="assets/images/UBP.webp">',
+        '{UB}' => '<img class ="manaIcon" alt ="Blue/Black" src="assets/images/UB.webp" >',
+        '{UBP}' => '<img class ="manaIcon" width="15px" alt ="Phyrexian Blue/black" src="assets/images/UBP.webp">',
         '{UP}' => '<img class ="manaIcon" width="15px" alt ="White/Black" src="assets/images/UP.webp" >',
         '{UR}' => '<img class ="manaIcon" width="15px" alt ="Blue/Red" src="assets/images/UR.webp" >',
-        '{URP}' => '<img class ="manaIcon" width="15px" alt = phyrexian Blue/Red" src="assets/images/URP.webp">',
+        '{URP}' => '<img class ="manaIcon" width="15px" alt = Phyrexian Blue/Red" src="assets/images/URP.webp">',
         '{W}' => '<img class ="manaIcon" width="15px" alt ="White" src="assets/images/W.webp" >',
         '{WB}' => '<img class ="manaIcon" width="15px" alt ="White/Black" src="assets/images/WB.webp" >',
-        '{WBP}' => '<img class ="manaIcon" width="15px" alt ="phyrexian white/black" src="assets/images/WBP.webp">',
-        '{WP}' => '<img class ="manaIcon" width="15px" alt ="phyrexian white/green" src="assets/images/WP.webp">',
-        '{WU}' => '<img class ="manaIcon" width="15px" alt = phyrexian white/blue" src="assets/images/WU.webp">',
-        '{WUP}' => '<img class ="manaIcon" width="15px" alt ="Untap" src="assets/images/WUP.webp">',
+        '{WBP}' => '<img class ="manaIcon" width="15px" alt ="Phyrexian white/black" src="assets/images/WBP.webp">',
+        '{WP}' => '<img class ="manaIcon" width="15px" alt ="Phyrexian White" src="assets/images/WP.webp">',
+        '{WU}' => '<img class ="manaIcon" width="15px" alt = White/Blue" src="assets/images/WU.webp">',
+        '{WUP}' => '<img class ="manaIcon" width="15px" alt ="Phyrexian White/Blue" src="assets/images/WUP.webp">',
         '{T}' => '<img class ="manaIcon" width="15px" alt ="Tap" src="assets/images/T.webp">',
         '{Q}' => '<img class ="manaIcon" width="15px" alt ="Untap" src="assets/images/T.webp">',
         '{X}' => '<img class ="manaIcon" width="15px" alt ="Generic X mana" src="assets/images/X.webp">'
@@ -140,6 +138,12 @@ function CardColor($color)
             break;
 
         }
+        case "Black/Green":
+        {
+                $imgurl = 'assets/images/BlackGreenBG.png';
+                break;
+    
+        }
         case "Green/White":
         {
             $imgurl = 'assets/images/GreenWhiteBG.png';
@@ -154,25 +158,25 @@ function CardColor($color)
         }
         case "Blue/Black":
         {
-            $imgurl = 'assets/images/BlueBlack.png';
+            $imgurl = 'assets/images/BlueBlackBG.png';
             break;
 
         }
         case "Blue/Red":
         {
-            $imgurl = 'assets/images/BlueRed.png';
+            $imgurl = 'assets/images/BlueRedBG.png';
             break;
 
         }
         case "White/Black":
         {
-            $imgurl = 'assets/images/WhiteBlack.png';
+            $imgurl = 'assets/images/WhiteBlackBG.png';
             break;
 
         }
         case "White/Blue":
         {
-            $imgurl = 'assets/images/WhiteBlue.png';
+            $imgurl = 'assets/images/WhiteBlueBG.png';
             break;
         }
     }
