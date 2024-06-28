@@ -62,7 +62,7 @@ $allCards = $deckManager->getAllCards();
             <h3>Delete Card from Deck/Update Number of a Card</h3>
             <form class="editForm" method="post">
                 <input type="hidden" name="deck_id" value="<?php echo $deck_id; ?>" />
-                <label>Card List: </label>
+                <label>Card: </label>
                 <select name="card_id" id="card_id">
                 <?php foreach ($cardList as $card) : ?>
                     <option value="<?php echo $card['card_id']; ?>">
