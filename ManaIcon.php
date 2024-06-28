@@ -128,7 +128,7 @@ function CardColor($color)
         }
         case "Blue":
         {
-            $imgurl = 'assets/images/RedBG.png';
+            $imgurl = 'assets/images/BlueBG.png';
             break;
 
         }
