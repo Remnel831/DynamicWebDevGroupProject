@@ -90,7 +90,7 @@ $allCards = $deckManager->getAllCards();
                 <select name="card_id" id="card_id">
                 <?php foreach ($allCards as $card) : ?>
                     <option value="<?php echo $card['card_id']; ?>">
-                    <?php echo $card['card_name']; ?>/<?php echo $card['card_color']; ?>, <?php echo $card['set_name']; ?>
+                    <?php echo $card['card_name']; ?>, <?php echo $card['card_color']; ?>, <?php echo $card['set_name']; ?>
                     </option>
                 <?php endforeach; ?> 
                 </select>
