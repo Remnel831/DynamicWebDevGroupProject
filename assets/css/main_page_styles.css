@@ -43,3 +43,35 @@ h1 {
     font-size: 24px;
     margin-bottom: 20px;
 }
+
+.sub-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 35px;
+}
+
+.card-types {
+    border: 8px solid navy;
+    border-collapse: collapse;
+    width: 95%;
+    margin: auto;
+}
+
+th {
+    border: 3px dashed black;
+    padding: 10px;  
+}
+
+td {
+    border: 3px dashed black;
+    padding: 10px;
+    text-align: left;
+}
+
+.types {
+    text-align: center;
+}

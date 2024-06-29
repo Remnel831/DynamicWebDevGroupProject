@@ -58,7 +58,7 @@ $types = $typeManager->getCardTypes();
                     </tr>
                     <?php foreach($types as $type) : ?>
                     <tr>
-                        <td><?php echo $type['type_name'] ?></td>
+                        <td class="types"><?php echo $type['type_name'] ?></td>
                         <td><?php echo $type['type_description'] ?></td>
                     </tr>
                     <?php endforeach; ?>
