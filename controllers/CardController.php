@@ -22,6 +22,13 @@ class CardController {
         ];
         $this->loadView('cards_view', $data);
     }
+    public function get_card_list($deck_id) {
+        $cards = $this->cardModel->getCardList($deck_id);
+        $data = [
+            'cardList' => $cards
+        ];
+        $this->loadView('cards_list', $data);
+    }
 
     private function loadView($viewName, $data) {
         include("views/{$viewName}.php");

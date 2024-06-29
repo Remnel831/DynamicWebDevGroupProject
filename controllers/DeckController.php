@@ -50,7 +50,18 @@ class DeckController {
         // Redirect back to viewDeck for display update
         $this->viewDeck($deck_id);
     }
-
+    public function editDeck($deck_id) {
+        $cardList = $this->cardModel->getCardList($deck_id);
+        $deck_name = $this->deckModel->getCurrentDeck($deck_id)['deck_name'];
+        $data = [
+            'deck_id' => $deck_id,
+            'deck_name' => $deck_name,
+            'cardList' => $cardList
+        ];
+        
+        $this->loadView('edit_deck_form', $data);
+    }
+    
     public function deleteDeck($deck_id) {
         $this->deckModel->deleteDeck($deck_id);
         header('Location: index.php?action=all_decks');

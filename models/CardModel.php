@@ -33,16 +33,5 @@ class CardModel {
     
         return $cardList;
     }
-
-    /*public function getAllCards() {
-        $queryAllCards = 'SELECT *
-                          FROM mtg_cards';
-        $statement1 = $this->conn->prepare($queryAllCards);
-        $statement1->execute();
-        $allCards = $statement1->fetchAll();
-        $statement1->closeCursor();
-
-        return $allCards; 
-    } */
 }
 ?>
