@@ -8,11 +8,11 @@
     <title>Deck List</title>
 </head>
 <body>
-        <nav class="navMenu">
-            <a href="index.php">Main Page</a>
-            <a href="index.php?action=all_decks"><b>Deck List</b></a>
-            <a href="index.php?action=all_cards"><b>Card List</b></a>
-        </nav>
+    <nav class="navMenu">
+        <a href="index.php">Main Page</a>
+        <a href="index.php?action=all_decks"><b>Deck List</b></a>
+        <a href="index.php?action=all_cards">Card List</a>
+    </nav>
 
     <div class="container">
         <h1>Deck List</h1>
@@ -25,10 +25,10 @@
 						
                     </a>
                     <div class="deck-card-actions">
-                        <a href="index.php?action=edit_deck&deck_id=<?php echo $deck['deck_id']; ?>" class="edit-button">Edit</a>
-                        <a href="index.php?action=delete_deck&deck_id=<?php echo $deck['deck_id']; ?>" class="delete-button" onclick="return confirm('Are you sure you want to delete this deck?');">Delete</a>
+                        <a href="index.php?action=edit_deck&deck_id=<?php echo $deck['deck_id']; ?>&<?php echo $deck['deck_name']; ?>" class="edit-button">Edit</a>
+                        <a href="index.php?action=delete_deck&deck_id=<?php echo $deck['deck_id']; ?>&<?php echo $deck['deck_name']; ?>" class="delete-button" onclick="return confirm('Are you sure you want to delete this deck?');">Delete</a>
+                        </a>
                     </div>
-                    </a>
                 </div>
 				
             <?php endforeach; ?>
