@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Deck</title>
-    <link rel="stylesheet" href="../assets/css/form_styles.css">
+    <link rel="stylesheet" href="./assets/css/form_styles.css">
 </head>
 <body>
     <nav class="navMenu">
@@ -12,6 +12,7 @@
         <a href="index.php?action=all_decks"><b>Deck List</b></a>
         <a href="index.php?action=all_cards">Card List</a>
     </nav>
+
     <div class="container">
         <h3>Delete Card from Deck/Update Number of a Card</h3>
         <h3>Current Deck: <?php echo $data['deck_name']; ?></h3>
