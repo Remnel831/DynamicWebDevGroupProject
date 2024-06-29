@@ -24,6 +24,7 @@ $statement1->closeCursor();
                 <li><a href=".?action=type_view">Card Types</a></li>
                 <li><a href=".?action=card_view">Card List</a></li>
                 <li><a href=".?action=deck_view">User Decks</a></li>
+				<li><a href=".?action=about_view">About Us</a></li>
             </ul>
         </nav>
         <table>
