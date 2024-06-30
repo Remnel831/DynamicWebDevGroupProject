@@ -15,6 +15,13 @@ class UpdateQuantity {
         $this->card_count = $card_count;
     }
 
+    /*
+    The following function updates the card count of the selected card from the edit deck page to the current deck. 
+    If the card_id and deck_id values are valid, then an SQL query is ran binding the card_id, deck_id, and card_count values that
+    are needed to update the card count for the specified card in the deck list of the current deck to the values that are
+    gained by submitting the form. - MM
+    */
+    
     public function updateCardQuantity() {
         if ($this->card_id !== false && $this->deck_id !== false && $this->card_count !== false) {
             $query = 'UPDATE mtg_decks_cards
