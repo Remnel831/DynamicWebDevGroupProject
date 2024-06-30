@@ -12,6 +12,12 @@ class DeleteCard {
         $this->deck_id = $deck_id;
     }
 
+    /*
+    The following function deletes the selected card from the edit deck page to the current deck. If the card_id and deck_id values
+    are valid, then an SQL query is ran binding the card_id and deck_id values that are needed to delete the card from the table 
+    to the card_id and deck_id values gained upon submission of the form. - MM
+    */
+    
     public function deleteFromDeck() {
         if ($this->card_id !== false && $this->deck_id !== false) {
             $query = 'DELETE FROM mtg_decks_cards
