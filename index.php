@@ -84,6 +84,12 @@ switch ($action) {
         $controller = new DeckController($deckModel, $cardModel);
         $controller->toggleFavorite($deck_id);
         break;
+	
+	case 'about_view':
+        require_once('controllers/AboutController.php');
+        $controller = new AboutController();
+        $controller->index();
+        break;
 
     default:
         // Handle 404 page
