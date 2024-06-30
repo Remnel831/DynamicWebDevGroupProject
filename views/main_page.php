@@ -50,7 +50,10 @@ $types = $typeManager->getCardTypes();
             <div class="sub-container">
                 <h1>The Magic Mini Lesson</h1>
                 <h2>Week of 06/30/24</h2>
-                <p>This week we will cover the five basic mana colors and the card types.</p>
+                <p>The following table has a breakdown of the ten different card types in Magic: The Gathering. This first week
+                    is to help you get a general knowledge of each card type and how they differ. Follow along in our series in
+                    the coming weeks, where we will go through each different card type and how the interact on the field of play!
+                </p>
                 <table class="card-types">
                     <tr>
                         <th>Card Type</th>
