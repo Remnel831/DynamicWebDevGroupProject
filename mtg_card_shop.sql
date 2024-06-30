@@ -34,6 +34,33 @@ IDENTIFIED BY 'mtgpassword';
 --
 -- Table structure for table `mtg_cards`
 --
+DROP TABLE IF EXISTS mtg_tips;
+CREATE TABLE IF NOT EXISTS mtg_tips
+(
+tip_id int NOT NULL AUTO_INCREMENT,
+tip_message varchar(1000),
+PRIMARY KEY (tip_id)
+);
+
+INSERT INTO mtg_tips
+(tip_id, tip_message)
+VALUES
+(1, 'The card description describes the card.'),
+(2, 'Download MTG Arena to get a feel for the game.'),
+(3, 'Use the Wizards store and event locator to find people to play with.'),
+(4, 'Once you know what cards you want buy them directly.  Booster packs are random and will cost more in the long run.'),
+(5, 'Avoid low impact cards! They take up space in your hand that could be used by cards you need.'),
+(6, 'Better to have more mana than you need instead of not enough.  Add extra lands to your deck!'),
+(7, 'If you use a red deck put a few lightning bolts in there 1 {R} for 3 damage is a pretty good deal'),
+(8, 'Attack and Block a lot!  Creatures only have value when you use them.'),
+(9, 'Never give up never surrender!  You haven''t lost until you lose.  With one more turn your opponent might make a mistake.'),
+(10, 'A good sideboard is what separates a good player from a great player.'),
+(11, 'Shower and put on deoderant before going to a tournament'),
+(12, 'No sleep ahead, all the more time for Elden Ring'),
+(13, 'Don''t give up, skeleton!'),
+(14, 'MTG Arena has free promo codes! Just look them up to get a good start.'),
+(15, 'Don''t hesitate to stop and ask questions.');
+
 
 DROP TABLE IF EXISTS `mtg_cards`;
 CREATE TABLE IF NOT EXISTS `mtg_cards` (
@@ -557,3 +584,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+;
