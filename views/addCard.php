@@ -12,6 +12,11 @@ class AddCard {
         $this->deck_id = $deck_id;
     }
 
+    /*
+    The following function adds the selected card from the edit deck page to the current deck. If the card_id and deck_id values
+    are valid, then an SQL query is ran binding the card_id and deck_id values that are needed to add the card to the table 
+    to the card_id and deck_id values gained upon submission of the form. - MM
+    */
     public function addToDeck() {
         if ($this->card_id !== false && $this->deck_id !== false) {
             $query = 'INSERT INTO mtg_decks_cards (card_id, deck_id)
@@ -26,7 +31,7 @@ class AddCard {
                 header("Location: ../index.php?action=deck&deck_id=" . $this->deck_id);
                 exit;
             } else {
-                // Handle the error if deletion was not successful
+                // Handle the error if addition was not successful
                 echo 'Error deleting card.';
             }
         } else {
