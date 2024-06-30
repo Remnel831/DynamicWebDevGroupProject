@@ -1,7 +1,10 @@
+/*
+Author(s): Joseph Gutierrez, Mario Montes
+Description: This page has the styles needed for the main (or welcome) page of the site.
+*/
 
 body {
     font-family: Arial, sans-serif;
-    /*background-color: #f4f4f4; */
     background-image: url(../Images/SilkBG.png);
     margin: 0;
     padding: 0;
@@ -43,6 +46,11 @@ h1 {
     font-size: 24px;
     margin-bottom: 20px;
 }
+
+/*
+This section of the code deals with the "lesson of the week" section of the main page, including having a sub-container for the lesson
+and stylizing the table for the card types, and having everything centered in the container. - MM 
+*/
 
 .sub-container {
     border: 1px solid #ccc;

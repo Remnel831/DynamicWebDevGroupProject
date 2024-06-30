@@ -1,3 +1,7 @@
+<!--
+
+-->
+
 <?php
 
 require_once(__DIR__ . '/../config/database.php');
@@ -9,6 +13,9 @@ class TypesManager {
         $this->conn = getConnection(); // Assumes getConnection() function from database.php
     }
 
+    /*
+    This function utilizes an SQL query to get the card types and returns them in order to create the table on the page. - MM
+    */
     public function getCardTypes() {
         $queryTypes = 'SELECT *
                        FROM mtg_card_type';
@@ -20,6 +27,10 @@ class TypesManager {
         return $types;
     }
 }
+
+/*
+This section of the page allows for the foreach method to be utilized when getting card types for the table in the lesson. - MM
+*/
 
 $typeManager = new TypesManager();
 $types = $typeManager->getCardTypes();
@@ -47,6 +58,12 @@ $types = $typeManager->getCardTypes();
                 to get an overview of what each card type does, see what available sets/cards you can build decks from, 
                 as well as allowing you to build your own decks!
             </h2>
+            
+            <!--
+            This section of the code contains the lesson in the subcontainer, utilizing the php function created to get the card types
+            to put them in a table on the main page. - MM
+            -->
+            
             <div class="sub-container">
                 <h1>The Magic Mini Lesson</h1>
                 <h2>Week of 06/30/24</h2>
@@ -54,6 +71,12 @@ $types = $typeManager->getCardTypes();
                     is to help you get a general knowledge of each card type and how they differ. Follow along in our series in
                     the coming weeks, where we will go through each different card type and how the interact on the field of play!
                 </p>
+                
+                <!--
+                This section of the code creates the card types table for the page,
+                utilizing a php foreach loop in order to populate the table. - MM
+                -->
+                
                 <table class="card-types">
                     <tr>
                         <th>Card Type</th>

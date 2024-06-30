@@ -71,7 +71,7 @@ $allCards = $deckManager->getAllCards();
                     </option>
                 <?php endforeach; ?>
             </select>
-            <br>
+            <br><br>
             <label>Number: </label>
             <select name="card_count" id="card_count">
                 <option value="1">1</option>
@@ -79,7 +79,7 @@ $allCards = $deckManager->getAllCards();
                 <option value="3">3</option>
                 <option value="4">4</option>
             </select>
-            <br><br>
+            <br><br><br>
             <input type="submit" formaction="deleteCard.php" value="Delete Card" />
             <input type="submit" formaction="updateQuantity.php" value="Update Quantity" />
         </form>
@@ -97,7 +97,7 @@ $allCards = $deckManager->getAllCards();
                 <option value="green">Green</option>
                 <option value="colorless">Colorless</option>
             </select>
-            <br>
+            <br><br>
             <label>Card to Add: </label>
             <select name="card_id" id="card_id_add">
                 <?php foreach ($allCards as $card) : ?>
@@ -106,7 +106,7 @@ $allCards = $deckManager->getAllCards();
                     </option>
                 <?php endforeach; ?>
             </select>
-            <br><br>
+            <br><br><br>
             <input type="submit" formaction="addCard.php" value="Add Card" />
         </form>
         <footer name="deck_id" id="deck_id">Deck ID: <?php echo $deck_id; ?></footer>

@@ -1,7 +1,11 @@
+/*
+Author(s): Mario Montes, Joseph Gutierrez
+Description: This file, which utilizes the code from main_page_styles.css as a template, has more specific styling to fit the edit
+             deck page.
+*/
 
 body {
     font-family: Arial, sans-serif;
-    /*background-color: #f4f4f4; */
     background-image: url(../Images/SilkBG.png);
     margin: 0;
     padding: 0;
@@ -37,6 +41,11 @@ body {
     border-radius: 8px;
     overflow: hidden;
 }
+
+/*
+This section of the file has the add and update/delete forms 
+to be in their own sub-containers and have them lay centered on the page. - MM
+*/
 
 .editForm {
     border: 1px solid #ccc;
