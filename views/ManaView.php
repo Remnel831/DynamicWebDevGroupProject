@@ -1,5 +1,6 @@
 <?php
 /*
+Jacob Jorgensen 06/24/2024
 This file sets up the mana icon and card color scripts that replaces mana tags with the symbols from the real cards and sets the card background
 to match the color of the card.  It can get rolled into one of the models I just had it separate for testing.- Jacob
 */
