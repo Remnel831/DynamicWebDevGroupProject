@@ -7,9 +7,9 @@
     <body>
         <nav>
             <ul class="mainmenu">
-                <li><a href=".?action=type_view">Card Types</a></li>
-                <li><a href=".?action=card_view">Card List</a></li>
-                <li><a href=".?action=deck_view">User Decks</a></li>
+                <li><a href="index.php?action=type_view">Card Types</a></li>
+                <li><a href="index.php?action=cards_view">Card List</a></li>
+                <li><a href="index.php?action=all_decks">User Decks</a></li>
             </ul>
         </nav>
         <table>
@@ -22,7 +22,7 @@
                 <th>Creature Attack</th>
                 <th>Creature Defense</th>
             </tr>
-            <?php foreach ($cardList as $cards) : ?>
+            <?php foreach ($allCards as $cards) : ?>
             <tr>
                 <td><?php echo $cards['card_name']?></td>
                 <td><?php echo $cards['card_type']?></td>

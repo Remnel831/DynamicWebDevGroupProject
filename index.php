@@ -66,8 +66,11 @@ switch ($action) {
         }
         break;
     case 'edit_deck':
-        $deck_id = $_GET['deck_id'];
-        header("Location: views/edit_deck_form.php?deck_id=$deck_id");
+        if ($deck_id) {
+            require_once('controllers/DeckController.php');
+            $controller = new DeckController($deckModel, $cardModel);
+            $controller->editDeck($deck_id);
+        }
         break;
     case 'add_card':
         require_once('controllers/CardController.php');

@@ -5,16 +5,15 @@ body {
     background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Use min-height instead of height */
+    min-height: 100vh;
 }
 
 .navMenu {
     background-color: #333;
-    overflow: hidden;
     padding: 10px;
-    position: fixed; /* Fixed position to keep it at the top */
-    width: 100%; /* Full width */
-    z-index: 1000; /* Ensure it's above other content */
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
 .navMenu a {
@@ -35,7 +34,7 @@ body {
     flex: 1;
     padding: 20px;
     justify-content: space-between;
-    margin-top: 50px; /* Adjusted margin top to account for navMenu height */
+    margin-top: 50px;
 }
 
 .deck-grid, .sc-container {
@@ -56,11 +55,10 @@ body {
 }
 
 .selected-cards {
-    display: flex; 
-    flex-wrap: wrap;/* Display children in a flex container */
+    display: flex;
+    flex-wrap: wrap;
     order: 1;
 }
-
 
 .deck-grid h2, .selected-cards h2 {
     text-align: center;
@@ -75,21 +73,16 @@ body {
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: #fff;
-    text-shadow:
-    1px 1px 0 #000,
-    -1px 1px 0 #000,
-    -1px -1px 0 #000,
-    1px -1px 0 #000;
+    text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
 }
 
 .selected-cards .deck-card {
-    max-width: 100px;
-    max-height:400px;
-    flex: 0 0 calc(33.33% - 20px); /* 33.33% width minus margin */
-    margin: 10px; /* Adjust margin as needed */
-    max-width: calc(33.33% - 20px); /* Max width for responsiveness */
+    flex: 0 0 calc(33.33% - 20px);
+    margin: 10px;
+    max-width: calc(33.33% - 20px);
     box-sizing: border-box; 
 }
+
 .deck-card:hover, .selected-card:hover {
     background-color: #f0f0f0;
 }
