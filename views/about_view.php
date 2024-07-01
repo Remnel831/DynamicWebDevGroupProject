@@ -31,7 +31,8 @@
 			<tr><b>Jacob: </b></tr></br></br>
 			</li>
 			<li>
-			<tr><b>Mario: </b></tr></br></br>
+			<tr><b>Mario: </b></tr>It's a me, Mario! I am currently earning my Computer Programming degree from STI. My favorite "infinite combo" is Sanguine Bond with Exquisite Blood. I am a proud father
+			of one (so far). You can find me and my daughter having tons of fun at Sertoma Park, most likely singing Ms. Rachel songs while playing.</br></br>
 			</li>
 			<li>
 			<tr><b>Ethan: </b>Hi! I am Ethan and I am currently working towards my associates degree in computer science. I spend my free time rock climbing(indoors) and on various projects ranging from
