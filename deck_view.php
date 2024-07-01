@@ -19,6 +19,7 @@ $statement1->closeCursor();
         <link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
     </head>
     <body>
+		
         <nav>
             <ul class="mainmenu">
                 <li><a href=".?action=type_view">Card Types</a></li>

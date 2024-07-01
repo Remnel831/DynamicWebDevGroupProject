@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MTG DeckBuilder</title>
-        <link rel="stylesheet" href="./assets/css/main_page_styles.css">
+        <title>Tips</title>
+		<link rel="stylesheet" href="./assets/css/main_page_styles.css">
     </head>
     <body>
         <nav class="navMenu">
@@ -15,13 +15,25 @@
 			<a href=".?action=tips_view">Tips</a>
 			<a href="index.php?action=about_view">About Us</a>
         </nav>
+		<?php
+		$count = -1;
+		foreach ($data['tips'] as $tip){
+			$count++;
+		}
+		
+		$random = rand(1, $count);
+		$countx = 0;
+		
+		foreach ($data['tips'] as $tip){
+			if($countx === $random){
+			$tipDisplay = $tip['tip_message'];
+			}
+			$countx++;
+		}
 
-        <div class="container">
-            <h1>Welcome to the MTG DeckBuilder!</h1>
-            <h2>This site is a great way for those getting into Magic: The Gathering
-                to get an overview of what each card type does, see what available sets/cards you can build decks from, 
-                as well as allowing you to build your own decks!
-            </h2>
-        </div>
+		?>
+		<h1 style="color:white"><strong>TIP: </strong> <?php echo $tipDisplay; ?> </h1>
+
+
     </body>
 </html>
