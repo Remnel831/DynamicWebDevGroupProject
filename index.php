@@ -90,6 +90,11 @@ switch ($action) {
                 $controller = new CardController($cardModel);
                 $controller->deleteCard();            
             break;
+    case 'add_card':
+        require_once('controllers/CardController.php');
+        $controller = new CardController($cardModel);
+        $controller->addCard();
+        break;
     case 'toggle_favorite': // Saves a favorite deck
         require_once('controllers/DeckController.php');
         $deck_id = $_SESSION['currentDeck'];

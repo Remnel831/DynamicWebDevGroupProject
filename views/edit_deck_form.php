@@ -52,7 +52,7 @@
                 <?php endforeach; ?>
             </select>
             <br><br>
-            <input type="submit" formaction="addCard.php" value="Add Card">
+            <button type="submit" formaction="index.php?action=add_card" name="add_card">Add Card</button>
         </form>
         <footer name="deck_id">Deck ID: <?php echo $data['deck_id']; ?></footer>
     </div>

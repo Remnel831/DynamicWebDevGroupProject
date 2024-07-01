@@ -61,6 +61,20 @@ class CardModel {
             return $success;
         }
     }
+
+    public function addCard($card_id, $deck_id) {
+        if ($card_id !== false && $deck_id !== false) {
+            $query = 'INSERT INTO mtg_decks_cards (card_id, deck_id)
+                      VALUES (:card_id, :deck_id)';
+            $statement = $this->conn->prepare($query);
+            $statement->bindValue(':card_id', $card_id);
+            $statement->bindValue(':deck_id', $deck_id);
+            $success = $statement->execute();
+            $statement->closeCursor();
+
+            return $success;
+        }
+    }
 }
 ?>
 

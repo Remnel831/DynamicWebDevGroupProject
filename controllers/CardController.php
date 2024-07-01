@@ -1,4 +1,4 @@
-<?php
+    <?php
 require_once('./models/CardModel.php');
 
 class CardController {
@@ -60,6 +60,24 @@ class CardController {
         } else {
             // Handle if deck_id is not available, perhaps redirect to a default page
             echo "Error deleting card.";
+            echo "card id: " . $card_id . "deck id:" . $deck_id;
+        }
+        exit; 
+    }
+
+    public function addCard() {
+        //Add card from the model
+        $card_id = filter_input(INPUT_POST, 'card_id', FILTER_VALIDATE_INT);
+        $deck_id = filter_input(INPUT_POST, 'deck_id', FILTER_VALIDATE_INT);
+
+        $success = $this->cardModel->addCard($card_id, $deck_id);
+
+        // Redirect based on whether $deck_id is available
+        if ($success) {
+            header("Location: index.php?action=edit_deck&deck_id={$deck_id}");
+        } else {
+            // Handle if deck_id is not available, perhaps redirect to a default page
+            echo "Error adding card.";
             echo "card id: " . $card_id . "deck id:" . $deck_id;
         }
         exit; 
