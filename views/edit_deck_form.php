@@ -42,7 +42,7 @@
         <br><br>
         <h3>Add Card to Deck</h3>
         <form class="editForm" method="post">
-            <input type="hidden" name="deck_id" value="<?php echo $deck_id; ?>">
+            <input type="hidden" name="deck_id" value="<?php echo $data['deck_id']; ?>">
             <label>Card to Add:</label>
             <select name="card_id">
                 <?php foreach ($data['allCards'] as $card) : ?>
