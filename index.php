@@ -13,10 +13,11 @@ if (empty($_SESSION['favoriteDeck'])) {
 require_once('./models/DeckModel.php');
 require_once('./models/CardModel.php');
 require_once('./views/ManaView.php');
-
+require_once('./models/TipModel.php');
 // Instantiate models for dependency injection
 $deckModel = new DeckModel();
 $cardModel = new CardModel();
+$tipModel = new TipModel();
 
 $action = $_GET['action'] ?? 'main_page';
 $deck_id = $_GET['deck_id'] ?? null;
@@ -85,6 +86,11 @@ switch ($action) {
         $controller->toggleFavorite($deck_id);
         break;
 	
+	case 'tips_view':
+        require_once('controllers/TipController.php');
+        $controller = new TipController($tipModel);
+        $controller->index();
+        break;
 	case 'about_view':
         require_once('controllers/AboutController.php');
         $controller = new AboutController();
