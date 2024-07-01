@@ -1,4 +1,3 @@
-@ -1,587 +0,0 @@
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
@@ -21,10 +20,6 @@ ON mtg_card_shop.*
 TO 'mtg_user@localhost'
 IDENTIFIED BY 'mtgpassword';
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `mtg_card_shop`
@@ -581,8 +576,3 @@ ALTER TABLE `mtg_decks_cards`
   ADD CONSTRAINT `mtg_decks_cards_ibfk_1` FOREIGN KEY (`deck_id`) REFERENCES `mtg_decks` (`deck_id`),
   ADD CONSTRAINT `mtg_decks_cards_ibfk_2` FOREIGN KEY (`card_id`) REFERENCES `mtg_cards` (`card_id`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-;

@@ -53,10 +53,12 @@ class DeckController {
     public function editDeck($deck_id) {
         $cardList = $this->cardModel->getCardList($deck_id);
         $deck_name = $this->deckModel->getCurrentDeck($deck_id)['deck_name'];
+        $allCards = $this->cardModel->getAllCards();
         $data = [
             'deck_id' => $deck_id,
             'deck_name' => $deck_name,
-            'cardList' => $cardList
+            'cardList' => $cardList,
+            'allCards' => $allCards
         ];
         
         $this->loadView('edit_deck_form', $data);
