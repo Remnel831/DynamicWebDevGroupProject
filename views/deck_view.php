@@ -16,6 +16,7 @@
     </nav>
 
         <div class="container">
+		
             <?php if (is_array($data['currentDeck']) && !empty($data['currentDeck'])): ?>
                 <h1>Deck: <?php echo $data['currentDeck']['deck_name']; ?></h1>
 
