@@ -28,7 +28,7 @@
 			<tr><b>Joseph:</b> Hello! I'm planning on taking the machine learning path! I love gaming and coding, I do them both very often!</tr></br></br>
 			</li>
 			<li>
-			<tr><b>Jacob: </b></tr></br></br>
+			<tr><b>Jacob: </b>Hello I'm Jacob! I make mods and play fighting games.  I can pull off a 48 hit ultra in Killer Instinct.</tr></br></br>
 			</li>
 			<li>
 			<tr><b>Mario: </b></tr>It's a me, Mario! I am currently earning my Computer Programming degree from STI. My favorite "infinite combo" is Sanguine Bond with Exquisite Blood. I am a proud father
