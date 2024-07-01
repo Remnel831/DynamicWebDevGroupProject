@@ -12,8 +12,9 @@
         <a href="index.php">Main Page</a>
         <a href="index.php?action=all_decks"><b>Deck List</b></a>
         <a href="index.php?action=all_cards">Card List</a>
-		<a href="index.php?action=deck_view">User Decks</a>
+        <a href=".?action=tips_view">Tips</a>
 		<a href="index.php?action=about_view">About Us</a>
+        
     </nav>
 
     <div class="container">

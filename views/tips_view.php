@@ -8,11 +8,10 @@
     </head>
     <body>
         <nav class="navMenu">
-            <a href="index.php"><b>Main Page</b></a>
+            <a href="index.php">Main Page</a>
             <a href="index.php?action=all_decks">Deck List</a>
             <a href="index.php?action=all_cards">Card List</a>
-			<a href="index.php?action=deck_view">User Decks</a>
-			<a href=".?action=tips_view">Tips</a>
+			<a href=".?action=tips_view"><b>Tips</b></a>
 			<a href="index.php?action=about_view">About Us</a>
         </nav>
 		<?php
