@@ -75,6 +75,19 @@ class CardModel {
             return $success;
         }
     }
+
+    public function getAvailableCards($deck_id) {
+        $query = 'SELECT * FROM mtg_cards 
+                  WHERE card_id NOT IN (SELECT card_id FROM mtg_decks_cards WHERE deck_id = :deck_id)';
+        $statement = $this->conn->prepare($query);
+        $statement->bindValue(':deck_id', $deck_id);
+        $statement->execute();
+        $availableCards = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $statement->closeCursor();
+    
+        return $availableCards;
+    }
+    
 }
 ?>
 

@@ -53,7 +53,7 @@ class DeckController {
     public function editDeck($deck_id) {
         $cardList = $this->cardModel->getCardList($deck_id);
         $deck_name = $this->deckModel->getCurrentDeck($deck_id)['deck_name'];
-        $allCards = $this->cardModel->getAllCards();
+        $allCards = $this->cardModel->getAvailableCards($deck_id);
         $data = [
             'deck_id' => $deck_id,
             'deck_name' => $deck_name,
