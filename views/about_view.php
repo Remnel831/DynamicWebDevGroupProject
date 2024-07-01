@@ -25,7 +25,7 @@
 			OUR TEAM </h1>
 			
 			<li>
-			<tr><b>Kiwi: </b></tr></br></br>
+			<tr><b>Joseph:</b> Hello! I'm planning on taking the machine learning path! I love gaming and coding, I do them both very often!</tr></br></br>
 			</li>
 			<li>
 			<tr><b>Jacob: </b></tr></br></br>
