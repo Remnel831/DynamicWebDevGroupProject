@@ -72,12 +72,23 @@ switch ($action) {
             $controller->editDeck($deck_id);
         }
         break;
-    case 'add_card':
+    case 'update_card':
+        
         require_once('controllers/CardController.php');
-        $controller = new CardController();
-        $controller->addCard();
+        $controller = new CardController($cardModel);
+        $controller->updateCard();
+        // if ($deck_id) {
+        //     header("Location: index.php?action=edit_deck&deck_id={$deck_id}");
+        // } else {
+        //     // Handle if deck_id is not available, perhaps redirect to a default page
+        //     header("Location: index.php");
+        // }
         break;
-
+        case 'delete_card':
+                require_once('controllers/CardController.php');
+                $controller = new CardController($cardModel);
+                $controller->deleteCard();            
+            break;
     case 'toggle_favorite': // Saves a favorite deck
         require_once('controllers/DeckController.php');
         $deck_id = $_SESSION['currentDeck'];
